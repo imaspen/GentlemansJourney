@@ -51,10 +51,19 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+    }
+
     void HitTarget()
     {
         Debug.Log("hit");
         Destroy(gameObject);
         player.GetComponent<HealthTracker>().ReduceHealth(10);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Wall")) Destroy(gameObject);
     }
 }
