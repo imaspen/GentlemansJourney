@@ -36,15 +36,34 @@ public class HealthTracker : MonoBehaviour
         //CurrentHealth = MaxHealth;
     }
 
+    void Update()
+    {
+ 
+    }
+
+    private void CheckHealth()
+    {
+        if (CurrentHealth < MaxHealth)
+        {
+            CurrentHealth = MaxHealth;
+        }
+        else if (CurrentHealth < 0)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
     public void ReduceHealth(float reduction)
     {
         Debug.Log(CurrentHealth);
         CurrentHealth = CurrentHealth - reduction;
         Debug.Log(CurrentHealth);
+        CheckHealth();
     }
 
     public void AddHealth(float hp)
     {
         CurrentHealth = CurrentHealth + hp;
+        CheckHealth();
     }
 }
