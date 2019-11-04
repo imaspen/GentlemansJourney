@@ -5,19 +5,17 @@ using UnityEngine;
 public class HealthTracker : MonoBehaviour
 {
     [SerializeField]
-   private float _currentHealth;
+    private float _currentHealth;
 
     public float CurrentHealth
     {
         get { return _currentHealth; }
         set {
-            if (tag.Equals("Player") && value <= 0)
-            {
-                gameObject.SetActive(false);
-                return;
-            }
-            else if (value <= 0 && !tag.Equals("Player")) Destroy(gameObject);
             _currentHealth = Mathf.Min(value, MaxHealth);
+            if (_currentHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -31,39 +29,23 @@ public class HealthTracker : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        //CurrentHealth = MaxHealth;
+        CurrentHealth = MaxHealth;
     }
 
     void Update()
     {
- 
+        
     }
-
-    private void CheckHealth()
-    {
-        if (CurrentHealth < MaxHealth)
-        {
-            CurrentHealth = MaxHealth;
-        }
-        else if (CurrentHealth < 0)
-        {
-            gameObject.SetActive(false);
-        }
-    }
-
+	
     public void ReduceHealth(float reduction)
     {
-        Debug.Log(CurrentHealth);
-        CurrentHealth = CurrentHealth - reduction;
-        Debug.Log(CurrentHealth);
-        CheckHealth();
+        CurrentHealth -= reduction;
     }
 
     public void AddHealth(float hp)
     {
-        CurrentHealth = CurrentHealth + hp;
-        CheckHealth();
+        CurrentHealth += hp;
     }
 }

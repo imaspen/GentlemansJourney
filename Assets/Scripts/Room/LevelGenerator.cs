@@ -44,10 +44,23 @@ public class LevelGenerator : MonoBehaviour
         set { if (value % 2 == 1) _levelHeight = value; }
     }
 
+    [SerializeField]
+    private GameObject _player;
+    public GameObject Player
+    {
+        get { return _player; }
+        set { _player = value; }
+    }
+
     private int[,] _layout;
     private GameObject[,] _map;
     private int _midpointX;
     private int _midpointZ;
+
+    void Awake()
+    {
+        Instantiate(Player, new Vector3(0, 0.4f, 0), Quaternion.identity);
+    }
 
     // Start is called before the first frame update
     void Start()

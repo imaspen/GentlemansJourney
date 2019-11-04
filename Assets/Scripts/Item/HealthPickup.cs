@@ -17,21 +17,13 @@ public class HealthPickup : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthTracker>();
-        Debug.Log("Health is: " + playerHealth.CurrentHealth);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hit the potion");
         if (playerHealth.CurrentHealth < playerHealth.MaxHealth)
         {
             Debug.Log(playerHealth.CurrentHealth);

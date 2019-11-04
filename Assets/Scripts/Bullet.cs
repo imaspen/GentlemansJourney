@@ -17,6 +17,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void Seek(Transform _target)
@@ -57,7 +58,6 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
-        Debug.Log("hit");
         Destroy(gameObject);
         player.GetComponent<HealthTracker>().ReduceHealth(10);
     }
