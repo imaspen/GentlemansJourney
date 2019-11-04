@@ -44,19 +44,18 @@ public class LevelGenerator : MonoBehaviour
         set { if (value % 2 == 1) _levelHeight = value; }
     }
 
-    private GameObject[,] _layout;
+    private int[,] _layout;
+    private GameObject[,] _map;
     private int _midpointX;
     private int _midpointZ;
-    private Dictionary<int, Vector3> _offsets;
-    private Vector3 _position;
 
     // Start is called before the first frame update
     void Start()
     {
-        _layout = new GameObject[LevelWidth, LevelHeight];
+        _layout = new int[LevelWidth, LevelHeight];
         _midpointX = (LevelWidth - 1) / 2;
-        _midpointZ = (LevelWidth - 1) / 2;
-        _layout[_midpointX, _midpointZ] = StartRoom;
+        _midpointZ = (LevelHeight - 1) / 2;
+        _layout[_midpointX, _midpointZ] = 0;
 
         generateLayout();
         spawnRooms();
@@ -65,6 +64,7 @@ public class LevelGenerator : MonoBehaviour
     //Dirty Implementation
     private void generateLayout()
     {
+        _layout[_midpointX, _midpointZ] = 1;
         for (int i = 0; i < RoomCount; i++)
         {
             int j = 0;
@@ -72,14 +72,14 @@ public class LevelGenerator : MonoBehaviour
             {
                 int posX = Random.Range(0, _levelHeight);
                 int posY = Random.Range(0, _levelWidth);
-                if (_layout[posX, posY]) continue;
+                if (_layout[posX, posY] > 0) continue;
 
-                if ((posX > 0 && _layout[posX - 1, posY])
-                    || (posY > 0 && _layout[posX, posY - 1])
-                    || (posX < LevelWidth - 1 && _layout[posX + 1, posY])
-                    || (posY < LevelHeight - 1 && _layout[posX, posY + 1]))
+                if ((posX > 0 && _layout[posX - 1, posY] > 0)
+                    || (posY > 0 && _layout[posX, posY - 1] > 0)
+                    || (posX < LevelWidth - 1 && _layout[posX + 1, posY] > 0)
+                    || (posY < LevelHeight - 1 && _layout[posX, posY + 1] > 0))
                 {
-                    _layout[posX, posY] = Rooms[0];
+                    _layout[posX, posY] = 1;
                     break;
                 }
                 if (j++ > 1000)
@@ -94,12 +94,14 @@ public class LevelGenerator : MonoBehaviour
 
     private void spawnRooms()
     {
-        for (int z = 0; z < LevelHeight - 1; z++)
+        _map = new GameObject[LevelWidth, LevelHeight];
+        for (int z = 0; z < LevelHeight; z++)
         {
             float worldZ = (z - _midpointZ) * 3; 
-            for (int x = 0; x < LevelWidth - 1; x++)
+            for (int x = 0; x < LevelWidth; x++)
             {
-                if (_layout[x, z]) {
+                if (_layout[x, z] > 0) {
+
                     float worldX = (x - _midpointX) * 5;
 
                     Vector3 position = new Vector3(worldX, 0, worldZ);
@@ -107,17 +109,28 @@ public class LevelGenerator : MonoBehaviour
                         ? StartRoom 
                         : Instantiate(Rooms[0], position, Quaternion.identity);
 
-                    room.GetComponent<RoomMovementController>().InitDoors(
-                        z > 0 ? _layout[x, z - 1] : null,
-                        z < LevelHeight - 1 ? _layout[x, z + 1] : null,
-                        x > 0 ? _layout[x - 1, z] : null,
-                        x < LevelWidth - 1 ? _layout[x + 1, z] : null
-                    );
+                    _map[x, z] = room;
 
-                    room.SetActive(false);
+                    _map[x, z].SetActive(false);
                 }
             }
         }
-        _layout[_midpointX, _midpointZ].SetActive(true);
+        _map[_midpointX, _midpointZ].SetActive(true);
+
+        for (int z = 0; z < LevelHeight; z++)
+        {
+            for (int x = 0; x < LevelWidth; x++)
+            {
+                if (_map[x, z])
+                {
+                    _map[x, z].GetComponent<RoomMovementController>().InitDoors(
+                        z > 0 ? _map[x, z - 1] : null,
+                        z < LevelHeight - 1 ? _map[x, z + 1] : null,
+                        x > 0 ? _map[x - 1, z] : null,
+                        x < LevelWidth - 1 ? _map[x + 1, z] : null
+                    );
+                }
+            }
+        }
     }
 }
