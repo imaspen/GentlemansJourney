@@ -7,7 +7,8 @@ public class EnemyController : MonoBehaviour
     [Header ("Attributes")]
     public float moveSpeed = 5.0f;
     public float rateOfFire = 2.0f;
-    public float minDist = 3.0f;
+    [Tooltip("Enemy will stay this distance from the player" +
+        "     N/A for melee enemies")]
     public float maxDist = 5.0f;
 
     [Header ("Ranged Or Melee?")]
@@ -51,15 +52,15 @@ public class EnemyController : MonoBehaviour
             else if (isMelee) // handle melee combat
             {
                 // get close to the player
-                minDist = 0.25f;
+                maxDist = 0.25f;
                 // stab
-                Attack();
+                Melee();
             }        
     }
 
     void Shoot()
     {
-        GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+        GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
         if (bullet != null)
@@ -68,7 +69,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void Attack()
+    void Melee()
     {
         // stabby stabby stab stab
     }

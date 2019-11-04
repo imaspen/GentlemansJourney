@@ -6,7 +6,18 @@ public class Bullet : MonoBehaviour
 {
     private Transform target;
 
+    [Tooltip("Above 1 will not home in" +
+        "     Larger values will travel slower")]
     public float speed = 2f;
+
+    public GameObject player;
+
+    Rigidbody rb;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     public void Seek(Transform _target)
     {
@@ -31,12 +42,20 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        if (speed <= 1.0f)
+        {
+            transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        } else
+        {
+            transform.Translate(Vector3.forward / speed);
+        }
+
     }
 
     void HitTarget()
     {
         Debug.Log("hit");
         Destroy(gameObject);
+        player.GetComponent<HealthTracker>().ReduceHealth(10);
     }
 }
