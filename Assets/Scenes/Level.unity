@@ -112,6 +112,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &194638991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4571950727826554028, guid: 77f456b3772f0784ab6f968ee6aa3036,
+    type: 3}
+  m_PrefabInstance: {fileID: 4571950727975252427}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &426805642
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +249,11 @@ PrefabInstance:
     - target: {fileID: 7075950412485286730, guid: fce21fc88a12ebe459dba7ba1bc4d092,
         type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075950412485286730, guid: fce21fc88a12ebe459dba7ba1bc4d092,
+        type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7075950412485286735, guid: fce21fc88a12ebe459dba7ba1bc4d092,
@@ -461,7 +472,7 @@ GameObject:
   - component: {fileID: 1960613171}
   - component: {fileID: 1960613170}
   m_Layer: 0
-  m_Name: Game Controller
+  m_Name: Level Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -479,8 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54acee4a3b05d6040968bb91a917a0ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startRoom: {fileID: 2603300445601197461, guid: e5da781b38b4924418ad0c10dcf5d6b0,
-    type: 3}
+  _startRoom: {fileID: 194638991}
   _roomCount: 8
   _rooms:
   - {fileID: 2603300445601197461, guid: e5da781b38b4924418ad0c10dcf5d6b0, type: 3}

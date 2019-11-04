@@ -9,7 +9,7 @@ public class RoomMovementController : MonoBehaviour
     private GameObject _leftDoor;
     private GameObject _rightDoor;
    
-    void Awake()
+    private void Awake()
     {
         _frontDoor = transform.Find("Meshes/Front Door").gameObject;
         _backDoor = transform.Find("Meshes/Back Door").gameObject;
@@ -25,5 +25,10 @@ public class RoomMovementController : MonoBehaviour
         if (!backRoom) _backDoor.SetActive(false);         
         if (!leftRoom) _leftDoor.SetActive(false);         
         if (!rightRoom) _rightDoor.SetActive(false);
+    }
+
+    private void Update()
+    {
+        Input.GetAxis("AttackMelee")
     }
 }

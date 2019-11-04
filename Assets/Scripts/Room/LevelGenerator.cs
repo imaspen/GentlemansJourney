@@ -99,12 +99,13 @@ public class LevelGenerator : MonoBehaviour
             float worldZ = (z - _midpointZ) * 3; 
             for (int x = 0; x < LevelWidth - 1; x++)
             {
-                //if (z = _midpointZ && )
                 if (_layout[x, z]) {
                     float worldX = (x - _midpointX) * 5;
 
                     Vector3 position = new Vector3(worldX, 0, worldZ);
-                    GameObject room = Instantiate(Rooms[0], position, Quaternion.identity);
+                    GameObject room = z == _midpointZ && x == _midpointX 
+                        ? StartRoom 
+                        : Instantiate(Rooms[0], position, Quaternion.identity);
 
                     room.GetComponent<RoomMovementController>().InitDoors(
                         z > 0 ? _layout[x, z - 1] : null,
