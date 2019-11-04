@@ -46,7 +46,7 @@ public class LevelGenerator : MonoBehaviour
 
     private GameObject[,] _layout;
     private int _midpointX;
-    private int _midpointY;
+    private int _midpointZ;
     private Dictionary<int, Vector3> _offsets;
     private Vector3 _position;
 
@@ -55,8 +55,8 @@ public class LevelGenerator : MonoBehaviour
     {
         _layout = new GameObject[LevelWidth, LevelHeight];
         _midpointX = (LevelWidth - 1) / 2;
-        _midpointY = (LevelWidth - 1) / 2;
-        _layout[_midpointX, _midpointY] = StartRoom;
+        _midpointZ = (LevelWidth - 1) / 2;
+        _layout[_midpointX, _midpointZ] = StartRoom;
 
         generateLayout();
         spawnRooms();
@@ -96,19 +96,27 @@ public class LevelGenerator : MonoBehaviour
     {
         for (int z = 0; z < LevelHeight - 1; z++)
         {
-            float worldZ = (z - _midpointY) * 3; 
+            float worldZ = (z - _midpointZ) * 3; 
             for (int x = 0; x < LevelWidth - 1; x++)
             {
+                //if (z = _midpointZ && )
                 if (_layout[x, z]) {
                     float worldX = (x - _midpointX) * 5;
 
                     Vector3 position = new Vector3(worldX, 0, worldZ);
                     GameObject room = Instantiate(Rooms[0], position, Quaternion.identity);
 
+                    room.GetComponent<RoomMovementController>().InitDoors(
+                        z > 0 ? _layout[x, z - 1] : null,
+                        z < LevelHeight - 1 ? _layout[x, z + 1] : null,
+                        x > 0 ? _layout[x - 1, z] : null,
+                        x < LevelWidth - 1 ? _layout[x + 1, z] : null
+                    );
+
                     room.SetActive(false);
                 }
-                _layout[_midpointX, _midpointY].SetActive(true);
             }
         }
+        _layout[_midpointX, _midpointZ].SetActive(true);
     }
 }
