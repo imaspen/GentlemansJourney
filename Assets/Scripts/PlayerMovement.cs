@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 lookDirection = new Vector3(Input.GetAxis("LookHorizontal"), 0, Input.GetAxis("LookVertical"));
 
-        Debug.Log($"X: {lookDirection.x}, Z: {lookDirection.z}");
+        //Debug.Log($"X: {lookDirection.x}, Z: {lookDirection.z}");
 
         if (lookDirection.magnitude > 0.2f)
         {

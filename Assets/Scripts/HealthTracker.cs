@@ -10,7 +10,10 @@ public class HealthTracker : MonoBehaviour
     public float CurrentHealth
     {
         get { return _currentHealth; }
-        set { _currentHealth = Mathf.Min(value, MaxHealth); }
+        set {
+            if (value <= 0) Destroy(gameObject);
+            _currentHealth = Mathf.Min(value, MaxHealth);
+        }
     }
 
     [SerializeField]
@@ -28,12 +31,14 @@ public class HealthTracker : MonoBehaviour
         CurrentHealth = MaxHealth;
     }
 
-    void ReduceHealth(float reduction)
+    public void ReduceHealth(float reduction)
     {
+        Debug.Log(CurrentHealth);
         CurrentHealth = CurrentHealth - reduction;
+        Debug.Log(CurrentHealth);
     }
 
-    void AddHealth(float hp)
+    public void AddHealth(float hp)
     {
         CurrentHealth = CurrentHealth + hp;
     }
