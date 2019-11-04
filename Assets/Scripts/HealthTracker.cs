@@ -11,6 +11,11 @@ public class HealthTracker : MonoBehaviour
     {
         get { return _currentHealth; }
         set {
+            if (tag.Equals("Player"))
+            {
+                gameObject.SetActive(false);
+                return;
+            }
             if (value <= 0) Destroy(gameObject);
             _currentHealth = Mathf.Min(value, MaxHealth);
         }
@@ -28,7 +33,7 @@ public class HealthTracker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CurrentHealth = MaxHealth;
+        //CurrentHealth = MaxHealth;
     }
 
     public void ReduceHealth(float reduction)
