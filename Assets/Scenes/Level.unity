@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  rateOfFire: 5
+  rateOfFire: 1
   minDist: 0.3
   maxDist: 2
   isRanged: 1
