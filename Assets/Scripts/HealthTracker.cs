@@ -11,12 +11,12 @@ public class HealthTracker : MonoBehaviour
     {
         get { return _currentHealth; }
         set {
-            if (tag.Equals("Player"))
+            if (tag.Equals("Player") && value <= 0)
             {
                 gameObject.SetActive(false);
                 return;
             }
-            if (value <= 0) Destroy(gameObject);
+            else if (value <= 0 && !tag.Equals("Player")) Destroy(gameObject);
             _currentHealth = Mathf.Min(value, MaxHealth);
         }
     }

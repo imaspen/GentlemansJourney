@@ -49,7 +49,6 @@ public class Bullet : MonoBehaviour
         {
             transform.Translate(Vector3.forward / speed);
         }
-
     }
 
     void HitTarget()
