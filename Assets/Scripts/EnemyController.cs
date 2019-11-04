@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-
+    [Header ("Attributes")]
     public float moveSpeed = 5.0f;
     public float rateOfFire = 2.0f;
+    public float minDist = 3.0f;
+    public float maxDist = 5.0f;
+
+    [Header ("Ranged Or Melee?")]
     public bool isRanged;
     public bool isMelee;
 
-    public GameObject bullet;
+    [Header ("Game Objects")]
+    public GameObject bulletPrefab;
     public Transform target;
+    public Transform firePoint;
 
-    float minDist = 3.0f;
-    float maxDist = 5.0f;
+    // private variables
+    float fireCountdown = 0.0f;
 
     // Update is called once per frame
     void Update()
@@ -22,36 +28,44 @@ public class EnemyController : MonoBehaviour
         // rotate to face player
         transform.LookAt(target);
 
-        // move object within specified range
-        if (Vector3.Distance(transform.position, target.position) >= minDist)
+        if (Vector3.Distance(transform.position, target.position) >= maxDist)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.position, minDist * Time.deltaTime);
-
-            // when inside that specified range
-            if (Vector3.Distance(transform.position, target.position) <= maxDist)
-            {
-                // check if ranged or melee 
-                if (isRanged)
-                {
-                    minDist = Random.Range(5.0f, 10.0f);
-                    StartCoroutine(Shoot());
-                }
-                else if (isMelee)
-                {
-                    minDist = 1.5f;
-                    Attack();
-                }
-            }
+            transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
         }
-        
+
+        if (isRanged) // handle ranged combat
+        {
+            // if it is time to shoot
+            if (fireCountdown <= 0.0f)
+            {
+                // if within range of target
+                if (Vector3.Distance(transform.position, target.position) <= maxDist)
+                {
+                    Shoot();
+                }
+                // reset fireCountdown
+                fireCountdown = 1.0f / rateOfFire;
+            }
+            fireCountdown -= Time.deltaTime;
+        }
+            else if (isMelee) // handle melee combat
+            {
+                // get close to the player
+                minDist = 0.25f;
+                // stab
+                Attack();
+            }        
     }
 
-    IEnumerator Shoot()
+    void Shoot()
     {
-        Instantiate(bullet, transform.position, Quaternion.identity);
-        bullet.transform.position = Vector3.MoveTowards(bullet.transform.position, target.position, 330);
+        GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+        Bullet bullet = bulletGO.GetComponent<Bullet>();
 
-        yield return new WaitForSeconds(rateOfFire);
+        if (bullet != null)
+        {
+            bullet.Seek(target);
+        }
     }
 
     void Attack()
