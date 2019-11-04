@@ -29,6 +29,9 @@ public class RoomMovementController : MonoBehaviour
 
     private void Update()
     {
-        Input.GetAxis("AttackMelee")
+        if (Input.GetAxis("AttackMelee") > 0.2)
+        {
+
+        }
     }
 }
