@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 7075950412485286731}
   - component: {fileID: 1231248527707266425}
   - component: {fileID: 7835637086588767742}
+  - component: {fileID: 6880439644914683632}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -233,6 +234,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meleeCollider: {fileID: 8331000886649424213}
   _meleeCooldown: 1
+--- !u!114 &6880439644914683632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7075950412485286730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab6c0438b636dd458f72893552107dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentHealth: 0
+  _maxHealth: 100
 --- !u!1 &8331000886649424213
 GameObject:
   m_ObjectHideFlags: 0
