@@ -10,6 +10,9 @@ public class HealthTracker : MonoBehaviour
     private bool isPlayer = false;
 
     [SerializeField]
+    private GameObject item;
+
+    [SerializeField]
     private float _currentHealth;
 
     public float CurrentHealth
@@ -19,6 +22,7 @@ public class HealthTracker : MonoBehaviour
             _currentHealth = Mathf.Min(value, MaxHealth);
             if (_currentHealth <= 0)
             {
+                DropItem();
                 Destroy(gameObject);
             }
         }
@@ -68,6 +72,14 @@ public class HealthTracker : MonoBehaviour
         {
             percentileHP = CurrentHealth / MaxHealth;
             healthBar.fillAmount = percentileHP;
+        }
+    }
+
+    private void DropItem()
+    {
+        if (item != null)
+        {
+            Instantiate(item);
         }
     }
 }
