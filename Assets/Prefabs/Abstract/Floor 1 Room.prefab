@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2603300445601197461, guid: e5da781b38b4924418ad0c10dcf5d6b0,
         type: 3}
       propertyPath: m_Name
-      value: Floor 1 Root Variant
+      value: Floor 1 Root Room
       objectReference: {fileID: 0}
     - target: {fileID: 2603300445601197466, guid: e5da781b38b4924418ad0c10dcf5d6b0,
         type: 3}
@@ -66,11 +66,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4384597960478457900, guid: e5da781b38b4924418ad0c10dcf5d6b0,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5da781b38b4924418ad0c10dcf5d6b0, type: 3}

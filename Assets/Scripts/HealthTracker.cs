@@ -32,11 +32,7 @@ public class HealthTracker : MonoBehaviour
     void Awake()
     {
         CurrentHealth = MaxHealth;
-    }
-
-    void Update()
-    {
-        
+        Debug.Log(CurrentHealth);
     }
 	
     public void ReduceHealth(float reduction)
