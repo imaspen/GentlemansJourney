@@ -92,7 +92,7 @@ public class LevelGenerator : MonoBehaviour
                     || (posX < LevelWidth - 1 && _layout[posX + 1, posY] > 0)
                     || (posY < LevelHeight - 1 && _layout[posX, posY + 1] > 0))
                 {
-                    _layout[posX, posY] = 1;
+                    _layout[posX, posY] = Random.Range(1, Rooms.Count + 1);
                     break;
                 }
                 if (j++ > 1000)
@@ -120,7 +120,11 @@ public class LevelGenerator : MonoBehaviour
                     Vector3 position = new Vector3(worldX, 0, worldZ);
                     GameObject room = z == _midpointZ && x == _midpointX 
                         ? StartRoom 
-                        : Instantiate(Rooms[0], position, Quaternion.identity);
+                        : Instantiate(
+                            Rooms[_layout[x, z] - 1], 
+                            position, 
+                            Quaternion.identity
+                        );
 
                     _map[x, z] = room;
 
