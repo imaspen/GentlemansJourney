@@ -117,7 +117,7 @@ GameObject:
   m_Layer: 0
   m_Name: Camera Point
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1118,6 +1118,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2603300445824357024}
     m_Modifications:
+    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
+      propertyPath: m_Name
+      value: Floor_Stone_01 (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.08600002
@@ -1174,10 +1178,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.33333334
       objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
-      propertyPath: m_Name
-      value: Floor_Stone_01 (6)
-      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.013400042
@@ -1205,6 +1205,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2603300445824357024}
     m_Modifications:
+    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
+      propertyPath: m_Name
+      value: Floor_Stone_01 (13)
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.308
@@ -1261,10 +1265,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.33333334
       objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
-      propertyPath: m_Name
-      value: Floor_Stone_01 (13)
-      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.013400042
@@ -1292,6 +1292,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2603300445824357024}
     m_Modifications:
+    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
+      propertyPath: m_Name
+      value: Floor_Stone_01 (11)
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.11200001
@@ -1348,10 +1352,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.33333334
       objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
-      propertyPath: m_Name
-      value: Floor_Stone_01 (11)
-      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.013400042
@@ -1379,6 +1379,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2603300445824357024}
     m_Modifications:
+    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
+      propertyPath: m_Name
+      value: Floor_Stone_01 (12)
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.308
@@ -1435,10 +1439,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.33333334
       objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
-      propertyPath: m_Name
-      value: Floor_Stone_01 (12)
-      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.013400042
@@ -1466,6 +1466,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2603300445824357024}
     m_Modifications:
+    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
+      propertyPath: m_Name
+      value: Floor_Stone_01 (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.282
@@ -1522,10 +1526,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.33333334
       objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
-      propertyPath: m_Name
-      value: Floor_Stone_01 (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.013400042
@@ -1553,6 +1553,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2603300445824357024}
     m_Modifications:
+    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
+      propertyPath: m_Name
+      value: Floor_Stone_01 (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.08600002
@@ -1609,10 +1613,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.33333334
       objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
-      propertyPath: m_Name
-      value: Floor_Stone_01 (7)
-      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.013400042
@@ -1640,6 +1640,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2603300445824357024}
     m_Modifications:
+    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
+      propertyPath: m_Name
+      value: Floor_Stone_01 (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.282
@@ -1696,10 +1700,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.33333334
       objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
-      propertyPath: m_Name
-      value: Floor_Stone_01 (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.013400042
@@ -1727,6 +1727,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2603300445824357024}
     m_Modifications:
+    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
+      propertyPath: m_Name
+      value: Floor_Stone_01 (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.282
@@ -1783,10 +1787,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.33333334
       objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
-      propertyPath: m_Name
-      value: Floor_Stone_01 (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0134
@@ -1814,6 +1814,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2603300445824357024}
     m_Modifications:
+    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
+      propertyPath: m_Name
+      value: Floor_Stone_01 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.48000002
@@ -1870,10 +1874,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.33333334
       objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
-      propertyPath: m_Name
-      value: Floor_Stone_01 (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.013400042
@@ -1901,6 +1901,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2603300445824357024}
     m_Modifications:
+    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
+      propertyPath: m_Name
+      value: Floor_Stone_01 (14)
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.30780002
@@ -1957,10 +1961,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.33333334
       objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
-      propertyPath: m_Name
-      value: Floor_Stone_01 (14)
-      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.013400042
@@ -1988,6 +1988,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2603300445824357024}
     m_Modifications:
+    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
+      propertyPath: m_Name
+      value: Floor_Stone_01 (10)
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.112
@@ -2044,10 +2048,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.33333334
       objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
-      propertyPath: m_Name
-      value: Floor_Stone_01 (10)
-      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.013400042
@@ -2075,6 +2075,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2603300445824357024}
     m_Modifications:
+    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
+      propertyPath: m_Name
+      value: Floor_Stone_01 (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.48000002
@@ -2131,10 +2135,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.33333334
       objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
-      propertyPath: m_Name
-      value: Floor_Stone_01 (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.013400042
@@ -2162,6 +2162,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2603300445824357024}
     m_Modifications:
+    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
+      propertyPath: m_Name
+      value: Floor_Stone_01 (8)
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.08600002
@@ -2218,10 +2222,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.33333334
       objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
-      propertyPath: m_Name
-      value: Floor_Stone_01 (8)
-      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.013400042
@@ -2249,6 +2249,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2603300445824357024}
     m_Modifications:
+    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
+      propertyPath: m_Name
+      value: Floor_Stone_01
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.48000002
@@ -2305,10 +2309,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.33333334
       objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
-      propertyPath: m_Name
-      value: Floor_Stone_01
-      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.013400042
@@ -2336,6 +2336,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2603300445824357024}
     m_Modifications:
+    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
+      propertyPath: m_Name
+      value: Floor_Stone_01 (9)
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.11200001
@@ -2391,10 +2395,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
-      propertyPath: m_Name
-      value: Floor_Stone_01 (9)
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 951296da3d242c3488fe6f8597b26566, type: 3}
       propertyPath: m_LocalPosition.y
