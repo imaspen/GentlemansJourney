@@ -14,6 +14,10 @@ public class RoomMovementController : MonoBehaviour
     private GameObject _leftRoom;
     private GameObject _rightRoom;
 
+    private Transform _enemies;
+
+    private bool _moveFlag;
+
     private GameObject _player;
     public GameObject Player
     {
@@ -41,6 +45,7 @@ public class RoomMovementController : MonoBehaviour
         _backDoor = transform.Find("Meshes/Back Door").gameObject;
         _leftDoor = transform.Find("Meshes/Left Door").gameObject;
         _rightDoor = transform.Find("Meshes/Right Door").gameObject;
+        _enemies = transform.Find("Enemies");
     }
     
     public void InitDoors(GameObject frontRoom, GameObject backRoom, 
@@ -59,15 +64,28 @@ public class RoomMovementController : MonoBehaviour
         PlayerMovement = Player.GetComponent<PlayerMovement>();
     }
 
+    private void Update()
+    {
+        _moveFlag = Input.GetAxis("Use") > 0.5;
+    }
+
     private void FixedUpdate()
     {
-        if (PlayerMovement.RoomMoveCooldown <= 0 && Input.GetAxis("AttackMelee") > 0.2)
+        if (PlayerMovement.RoomMoveCooldown <= 0
+            && _moveFlag //Move Key
+            && RoomEmpty())
         {
             if (CheckDoor(_frontDoor)) MoveRoom(_frontRoom, 0, -1);
             if (CheckDoor(_backDoor)) MoveRoom(_backRoom, 0, 1);
             if (CheckDoor(_leftDoor)) MoveRoom(_leftRoom, -1, 0);
             if (CheckDoor(_rightDoor)) MoveRoom(_rightRoom, 1, 0);
         }
+        _moveFlag = false;
+    }
+
+    private bool RoomEmpty()
+    {
+        return _enemies.childCount == 0;
     }
 
     private void MoveRoom(GameObject newRoom, float xOffset, float zOffset)
