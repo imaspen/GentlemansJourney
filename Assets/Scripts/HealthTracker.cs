@@ -76,6 +76,15 @@ public class HealthTracker : MonoBehaviour
         }
     }
 
+    void OnEnemyDeath()
+    {
+        if (CurrentHealth == 0)
+        {
+            Destroy(gameObject);
+        }
+        
+    }
+
     private void DropItem()
     {
         randomNum = Random.Range(0f, 1f);
