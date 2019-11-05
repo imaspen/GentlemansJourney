@@ -24,12 +24,10 @@ public class HealthPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (playerHealth.CurrentHealth < playerHealth.MaxHealth)
-        {
+
             Debug.Log(playerHealth.CurrentHealth);
-            playerHealth.CurrentHealth = playerHealth.CurrentHealth + HealthBonus;
+            playerHealth.AddHealth(HealthBonus);
             Debug.Log(playerHealth.CurrentHealth);
             Destroy(gameObject);
-        }
     }
 }

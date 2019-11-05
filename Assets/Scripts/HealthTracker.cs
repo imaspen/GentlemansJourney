@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthTracker : MonoBehaviour
 {
+    private Image healthBar;
+    private float percentileHP;
+    private bool isPlayer = false;
+
     [SerializeField]
     private float _currentHealth;
 
@@ -32,16 +37,37 @@ public class HealthTracker : MonoBehaviour
     void Awake()
     {
         CurrentHealth = MaxHealth;
-        Debug.Log(CurrentHealth);
+
+        healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Image>();
+
+        if (gameObject.tag == "Player")
+        {
+            isPlayer = true;
+            Debug.Log("PLAYER HEALTH DETECTED");
+        }
     }
+
 	
     public void ReduceHealth(float reduction)
     {
+
         CurrentHealth -= reduction;
+
+        if (isPlayer == true)
+        {
+            percentileHP = CurrentHealth / MaxHealth;
+            healthBar.fillAmount = percentileHP;
+        }
     }
 
     public void AddHealth(float hp)
     {
         CurrentHealth += hp;
+
+        if (isPlayer == true)
+        {
+            percentileHP = CurrentHealth / MaxHealth;
+            healthBar.fillAmount = percentileHP;
+        }
     }
 }
