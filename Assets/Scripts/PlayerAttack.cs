@@ -26,7 +26,7 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetAxis("AttackMelee") != 0 && _cooldown <= 0)
         {
             Debug.Log("MELEE ATTACK!");
-            cameraShake.StartShake(0.03f);
+            cameraShake.StartShake(0.02f, 0.025f);
             StartCoroutine(MeleeAttack());
         }
     }

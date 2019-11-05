@@ -9,6 +9,7 @@ public class HealthTracker : MonoBehaviour
     private float percentileHP;
     private bool isPlayer = false;
     private float randomNum;
+    private ScreenEffects cameraEffects;
 
     [SerializeField]
     private GameObject item;
@@ -41,6 +42,8 @@ public class HealthTracker : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        cameraEffects = Camera.main.GetComponent<ScreenEffects>();
+
         CurrentHealth = MaxHealth;
 
         healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Image>();
@@ -62,6 +65,10 @@ public class HealthTracker : MonoBehaviour
         {
             percentileHP = CurrentHealth / MaxHealth;
             healthBar.fillAmount = percentileHP;
+        }
+        else
+        {
+            cameraEffects.StartShake(0.1f, 0.1f);
         }
     }
 

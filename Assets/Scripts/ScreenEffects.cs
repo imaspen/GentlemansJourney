@@ -34,8 +34,9 @@ public class ScreenEffects : MonoBehaviour
         shakeDuration = 0;
     }
 
-    public void StartShake (float duration)
+    public void StartShake (float duration, float intensity)
     {
+        shakeAmount = intensity;
         Debug.Log("START SHAKE");
         originalPos = camTransform.localPosition;
         _shakingFlag = true;
