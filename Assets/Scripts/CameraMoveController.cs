@@ -19,7 +19,7 @@ public class CameraMoveController : MonoBehaviour
     {
         if (_target)
         {
-            transform.position += _movementPerSecond * Time.deltaTime;
+            transform.position += _movementPerSecond * Time.deltaTime / Speed;
         }
     }
 
@@ -28,7 +28,7 @@ public class CameraMoveController : MonoBehaviour
         endRoom.SetActive(true);
         _target = endRoom.transform.Find("Camera Point");
         _movementPerSecond = (_target.position - transform.position);
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(Speed);
         startRoom.SetActive(false);
         endRoom.transform.Find("Enemies").gameObject.SetActive(true);
         _target = null;
