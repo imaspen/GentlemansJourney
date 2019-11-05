@@ -124,10 +124,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  attackRate: 2
+  rateOfFire: 2
   maxDist: 1.5
-  meleeDamage: 10
-  isRanged: 0
+  isRanged: 1
   isMelee: 0
   bulletPrefab: {fileID: 5748181692235621949, guid: 2a5058151a8f8da49978ed30e9b2cb66,
     type: 3}
