@@ -6,6 +6,7 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField]
     private GameObject meleeCollider;
+    private ScreenEffects cameraShake;
 
     [SerializeField]
     private float _attackSpeed = 1f;
@@ -25,8 +26,14 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetAxis("AttackMelee") != 0 && _cooldown <= 0)
         {
             Debug.Log("MELEE ATTACK!");
+            cameraShake.StartShake(0.03f);
             StartCoroutine(MeleeAttack());
         }
+    }
+
+    void Start()
+    {
+        cameraShake = Camera.main.GetComponent<ScreenEffects>();
     }
 
     IEnumerator MeleeAttack()
