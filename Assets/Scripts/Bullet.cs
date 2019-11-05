@@ -64,6 +64,6 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        if (!other.CompareTag("Enemy")) Destroy(gameObject);
     }
 }
