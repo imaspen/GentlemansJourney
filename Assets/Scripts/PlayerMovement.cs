@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (moveDirection.magnitude > 0.95f)
         {
+            moveDirection.Normalize();
             moveDirection *= playerSpeed;
 
             characterController.Move(moveDirection);
