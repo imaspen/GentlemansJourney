@@ -30,6 +30,7 @@ public class CameraMoveController : MonoBehaviour
         _movementPerSecond = (_target.position - transform.position);
         yield return new WaitForSeconds(1.0f);
         startRoom.SetActive(false);
+        endRoom.transform.Find("Enemies").gameObject.SetActive(true);
         _target = null;
     }
 }
