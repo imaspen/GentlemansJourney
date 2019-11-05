@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Pickup
   - HealthBar
+  - White Screen
   layers:
   - Default
   - TransparentFX
