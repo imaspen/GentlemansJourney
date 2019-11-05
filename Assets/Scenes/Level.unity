@@ -356,8 +356,8 @@ MonoBehaviour:
   _roomCount: 8
   _rooms:
   - {fileID: 6006880778026069872, guid: 9a92ea19fd0101144918d1082dd498c9, type: 3}
-  - {fileID: 2603300445601197461, guid: e5da781b38b4924418ad0c10dcf5d6b0, type: 3}
-  - {fileID: 2603300445601197461, guid: e5da781b38b4924418ad0c10dcf5d6b0, type: 3}
+  - {fileID: 347220671124417761, guid: ebc44996337492743bd035f80906f654, type: 3}
+  - {fileID: 1292409406771698829, guid: 5baf67ef53f7b3d4f8d6c37ca9d78f64, type: 3}
   _levelWidth: 7
   _levelHeight: 7
   _player: {fileID: 7075950412485286730, guid: 59c269fccaa480343834d44cf210ebc8, type: 3}
