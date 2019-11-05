@@ -91,15 +91,11 @@ public class RoomMovementController : MonoBehaviour
     private void MoveRoom(GameObject newRoom, float xOffset, float zOffset)
     {
         PlayerMovement.RoomMoveCooldown = 0.5f;
-        newRoom.SetActive(true);
-        Player.transform.position = new Vector3(
-            Player.transform.position.x + xOffset,
-            Player.transform.position.y,
-            Player.transform.position.z + zOffset
+        Player.transform.position += new Vector3(xOffset, 0, zOffset);
+        StartCoroutine(
+            Camera.main.GetComponent<CameraMoveController>()
+            .Lerp(gameObject, newRoom)
         );
-        Transform cameraPoint = newRoom.transform.Find("Camera Point");
-        Camera.main.transform.position = cameraPoint.position;
-        gameObject.SetActive(false);
     }
 
     private bool CheckDoor(GameObject door)
