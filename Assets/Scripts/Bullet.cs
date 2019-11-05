@@ -37,12 +37,6 @@ public class Bullet : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
-        if (dir.magnitude <= distanceThisFrame)
-        {
-            HitTarget();
-            return;
-        }
-
         if (speed <= 1.0f)
         {
             transform.Translate(dir.normalized * distanceThisFrame, Space.World);
@@ -52,18 +46,13 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-    }
-
-    void HitTarget()
-    {
-        Destroy(gameObject);
-        player.GetComponent<HealthTracker>().ReduceHealth(10);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.name.Contains("Wall")) Destroy(gameObject);
+        if (other.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+            player.GetComponent<HealthTracker>().ReduceHealth(10);
+        }
     }
 }
