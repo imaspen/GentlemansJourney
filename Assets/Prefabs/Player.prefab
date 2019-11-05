@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeCollider: {fileID: 8331000886649424213}
-  _meleeCooldown: 1
+  _attackSpeed: 1
 --- !u!114 &6880439644914683632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,7 +275,7 @@ Transform:
   m_GameObject: {fileID: 8331000886649424213}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.8571427, y: 2.5, z: 2.8571427}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7075950412485286735}
   m_RootOrder: 1
@@ -291,8 +291,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8527284, y: 0.52945375, z: 0.8269651}
-  m_Center: {x: -0.008506627, y: 0.008323669, z: 0.5316709}
+  m_Size: {x: 2, y: 4, z: 2}
+  m_Center: {x: 0, y: 1, z: 1}
 --- !u!114 &2063356414912698510
 MonoBehaviour:
   m_ObjectHideFlags: 0

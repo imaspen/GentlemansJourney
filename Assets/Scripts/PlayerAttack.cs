@@ -8,23 +8,21 @@ public class PlayerAttack : MonoBehaviour
     private GameObject meleeCollider;
 
     [SerializeField]
-    private float _meleeCooldown = 1f;
-    public float MeleeCooldown
+    private float _attackSpeed = 1f;
+    public float AttackSpeed
     {
-        get { return _meleeCooldown; }
-        set { _meleeCooldown = value; }
+        get { return _attackSpeed; }
+        set { _attackSpeed = Mathf.Abs(value); }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //StartCoroutine(MeleeAttack());
-    }
+    private float _cooldown = 0f;
+
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("AttackMelee") != 0)
+        _cooldown -= Time.deltaTime;
+        if (Input.GetAxis("AttackMelee") != 0 && _cooldown <= 0)
         {
             Debug.Log("MELEE ATTACK!");
             StartCoroutine(MeleeAttack());
@@ -33,6 +31,7 @@ public class PlayerAttack : MonoBehaviour
 
     IEnumerator MeleeAttack()
     {
+        _cooldown = AttackSpeed;
         Debug.Log("Attack start");
         meleeCollider.SetActive(true);
         yield return new WaitForSeconds(0.1f);

@@ -17,42 +17,42 @@ public class EnemyController : MonoBehaviour
 
     [Header ("Game Objects")]
     public GameObject bulletPrefab;
-    public Transform target;
     public Transform firePoint;
 
     // private variables
-    float fireCountdown = 0.0f;
+    private float _fireCooldown = 0.0f;
+    private Transform _target;
 
     private void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        _target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
         // rotate to face player
-        transform.LookAt(target);
+        transform.LookAt(new Vector3(_target.position.x, transform.position.y, _target.position.z));
 
-        if (Vector3.Distance(transform.position, target.position) >= maxDist)
+        if (Vector3.Distance(transform.position, _target.position) >= maxDist)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, _target.position, moveSpeed * Time.deltaTime);
         }
 
         if (isRanged) // handle ranged combat
         {
             // if it is time to shoot
-            if (fireCountdown <= 0.0f)
+            if (_fireCooldown <= 0.0f)
             {
                 // if within range of target
-                if (Vector3.Distance(transform.position, target.position) <= maxDist)
+                if (Vector3.Distance(transform.position, _target.position) <= maxDist)
                 {
                     Shoot();
                 }
                 // reset fireCountdown
-                fireCountdown = 1.0f / rateOfFire;
+                _fireCooldown = 1.0f / rateOfFire;
             }
-            fireCountdown -= Time.deltaTime;
+            _fireCooldown -= Time.deltaTime;
         }
             else if (isMelee) // handle melee combat
             {
@@ -70,7 +70,7 @@ public class EnemyController : MonoBehaviour
 
         if (bullet != null)
         {
-            bullet.Seek(target);
+            bullet.Seek(_target);
         }
     }
 

@@ -19,11 +19,12 @@ public class MeleeColliderScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.tag);
         if (other.tag == "Enemy")
         {
             enemyObject = other.GetComponent<HealthTracker>();
