@@ -70,6 +70,9 @@ public class HealthTracker : MonoBehaviour
 
     private void Start()
     {
+        whiteScreenOn = false;
+        redScreenOn = false;
+
         if (isPlayer)
         {
             whiteScreen = transform.Find("UI/ScreenBlinkEnemy").gameObject;
@@ -142,8 +145,6 @@ public class HealthTracker : MonoBehaviour
         yield return new WaitForSeconds(0.02f);
         redScreenOn = false;
         redScreen.SetActive(false);
-        yield return new WaitForSeconds(3f);
-        redScreen.SetActive(false);
         //whiteScreen.SetActive(true);
         //yield return new WaitForSeconds(0.025f);
         //whiteScreen.SetActive(false);
@@ -151,14 +152,15 @@ public class HealthTracker : MonoBehaviour
 
     IEnumerator ScreenBlinkEnemy()
     {
-        whiteScreen.SetActive(true);
-        whiteScreenOn = true;
-        yield return new WaitForSeconds(0.02f);
-        whiteScreenOn = false;
         whiteScreen.SetActive(false);
-        //yield return new WaitForSeconds(0.01f);
-        //whiteScreen.SetActive(true);
-        //yield return new WaitForSeconds(0.025f);
-        //whiteScreen.SetActive(false);
+        if (whiteScreenOn == false)
+        {
+            whiteScreen.SetActive(true);
+            whiteScreenOn = true;
+            yield return new WaitForSeconds(0.02f);
+            whiteScreenOn = false;
+            whiteScreen.SetActive(false);
+        }
+
     }
 }
