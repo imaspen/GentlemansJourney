@@ -88,8 +88,7 @@ public class HealthTracker : MonoBehaviour
         if (CurrentHealth == 0)
         {
             Destroy(gameObject);
-        }
-        
+        }       
     }
 
     private void DropItem()
