@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  rateOfFire: 2
+  rateOfFire: 1
   maxDist: 1.5
   isRanged: 1
   isMelee: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentHealth: 0
-  _maxHealth: 30
+  _maxHealth: 60
 --- !u!54 &1361902394
 Rigidbody:
   m_ObjectHideFlags: 0
