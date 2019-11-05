@@ -8,6 +8,7 @@ public class HealthTracker : MonoBehaviour
     private Image healthBar;
     private float percentileHP;
     private bool isPlayer = false;
+    private float randomNum;
 
     [SerializeField]
     private GameObject item;
@@ -77,9 +78,12 @@ public class HealthTracker : MonoBehaviour
 
     private void DropItem()
     {
+        randomNum = Random.Range(0f, 1f);
+
         if (item != null)
         {
-            Instantiate(item);
+            if (randomNum >= 0.55f)
+            Instantiate(item, gameObject.transform.position + new Vector3(0, 0.3f, 0), Quaternion.identity);
         }
     }
 }
