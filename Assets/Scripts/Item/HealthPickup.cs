@@ -46,6 +46,7 @@ public class HealthPickup : MonoBehaviour
     IEnumerator DestroySequence()
     {
         rend.enabled = false;
+        gameObject.GetComponentInChildren<Light>().enabled = false;
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
