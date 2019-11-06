@@ -25,12 +25,14 @@ public class EnemyController : MonoBehaviour
     private Transform _target;
     private NavMeshAgent _agent;
     private float _navmeshCooldown;
+    private GhostSounds ghostSounds;
 
     private void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         _target = player.transform;
         _agent = GetComponent<NavMeshAgent>();
+        ghostSounds = GetComponentInChildren<GhostSounds>();
     }
 
     // Update is called once per frame
@@ -66,6 +68,7 @@ public class EnemyController : MonoBehaviour
                 // if within range of target
                 if (Vector3.Distance(transform.position, _target.position) <= maxDist)
                 {
+                    ghostSounds.SpitClip();
                     Shoot();
                 }
                 // reset fireCountdown

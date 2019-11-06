@@ -8,6 +8,9 @@ public class HealthTracker : MonoBehaviour
     [SerializeField]
     private PlayerSounds playerSounds;
 
+    [SerializeField]
+    private GhostSounds ghostSounds;
+
     private Image healthBar;
     private float percentileHP;
     private bool isPlayer = false;
@@ -32,9 +35,17 @@ public class HealthTracker : MonoBehaviour
             _currentHealth = Mathf.Min(value, MaxHealth);
             if (_currentHealth <= 0)
             {
-                whiteScreen.SetActive(false);
-                DropItem();
-                Destroy(gameObject);
+                if (gameObject.tag == "Enemy")
+                {
+                    whiteScreen.SetActive(false);
+                    DropItem();
+                    OnEnemyDeath();
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
+ 
             }
         }
     }
@@ -63,6 +74,11 @@ public class HealthTracker : MonoBehaviour
         {
             isPlayer = true;
             Debug.Log("PLAYER HEALTH DETECTED");
+        }
+
+        if (gameObject.tag == "Enemy")
+        {
+            ghostSounds = gameObject.GetComponentInChildren<GhostSounds>();
         }
     }
 
@@ -128,6 +144,7 @@ public class HealthTracker : MonoBehaviour
     {
         if (CurrentHealth == 0)
         {
+            ghostSounds.DeathClip();
             Destroy(gameObject);
         }       
     }

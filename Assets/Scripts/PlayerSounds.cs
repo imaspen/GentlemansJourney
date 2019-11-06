@@ -23,6 +23,7 @@ public class PlayerSounds : MonoBehaviour
     private AudioSource audioSourceDamage;
     private AudioSource audioSourceMelee;
     private AudioSource audioSourceSteps;
+    private AudioSource audioSourceQuotes;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class PlayerSounds : MonoBehaviour
         audioSourceSteps = GameObject.Find("audioSourceSteps").GetComponent<AudioSource>();
         audioSourceMelee = GameObject.Find("audioSourceMelee").GetComponent<AudioSource>();
         audioSourceDamage = GameObject.Find("audioSourceDamage").GetComponent<AudioSource>();
+        audioSourceQuotes = GameObject.Find("audioSourceQuotes").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

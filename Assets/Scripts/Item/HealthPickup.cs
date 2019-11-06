@@ -10,6 +10,13 @@ public class HealthPickup : MonoBehaviour
     [SerializeField]
     private float _healthBonus;
 
+    [SerializeField]
+    private AudioClip pickupClip;
+
+    private AudioSource audioSource;
+
+    private Renderer rend;
+
     public float HealthBonus
     {
         get { return _healthBonus; }
@@ -20,14 +27,23 @@ public class HealthPickup : MonoBehaviour
     void Start()
     {
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthTracker>();
+        audioSource = gameObject.GetComponent<AudioSource>();
+        rend = GetComponent<Renderer>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        audioSource.PlayOneShot(pickupClip);
+        Debug.Log(playerHealth.CurrentHealth);
+        playerHealth.AddHealth(HealthBonus);
+        Debug.Log(playerHealth.CurrentHealth);
+        StartCoroutine(DestroySequence());
+    }
 
-            Debug.Log(playerHealth.CurrentHealth);
-            playerHealth.AddHealth(HealthBonus);
-            Debug.Log(playerHealth.CurrentHealth);
-            Destroy(gameObject);
+    IEnumerator DestroySequence()
+    {
+        rend.enabled = false;
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 }
