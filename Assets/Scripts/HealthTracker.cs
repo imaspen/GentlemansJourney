@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class HealthTracker : MonoBehaviour
 {
-    [SerializeField]
     private PlayerSounds playerSounds;
 
-    [SerializeField]
     private GhostSounds ghostSounds;
+
+    [SerializeField]
+    private GameObject ghostDeathParticle;
 
     private Image healthBar;
     private float percentileHP;
@@ -39,6 +40,7 @@ public class HealthTracker : MonoBehaviour
             {
                 if (gameObject.tag == "Enemy")
                 {
+                    Instantiate(ghostDeathParticle, gameObject.transform.position + new Vector3(0f, 0.7f, 0f), Quaternion.identity);
                     whiteScreen.SetActive(false);
                     DropItem();
                     OnEnemyDeath();

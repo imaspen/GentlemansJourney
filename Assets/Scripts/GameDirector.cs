@@ -8,10 +8,12 @@ public class GameDirector : MonoBehaviour
 
     [SerializeField]
     private GameObject deathScreen;
+    private bool deathActive;
 
     // Start is called before the first frame update
     void Start()
     {
+        deathActive = false;
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -20,7 +22,11 @@ public class GameDirector : MonoBehaviour
     {
         if (!player)
         {
-            Instantiate(deathScreen);
+            if (!deathActive)
+            {
+                deathActive = true;
+                Instantiate(deathScreen);
+            }
         }
     }
 }

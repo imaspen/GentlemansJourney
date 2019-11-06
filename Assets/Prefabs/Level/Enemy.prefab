@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab6c0438b636dd458f72893552107dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSounds: {fileID: 0}
-  ghostSounds: {fileID: 0}
+  ghostDeathParticle: {fileID: 9153091702865230904, guid: a69a24944761bf044936d9abfbdbbe1e,
+    type: 3}
   item: {fileID: 2134391546900281315, guid: 48725ef502caafa4f98eefd89af139e4, type: 3}
   _currentHealth: 0
   _maxHealth: 60
