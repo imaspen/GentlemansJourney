@@ -55,6 +55,7 @@ MonoBehaviour:
   - {fileID: 7471594620394740864, guid: f304f859a8ae95a4bb8d5d6f72dee158, type: 3}
   - {fileID: 757891160281792866, guid: 9add68b7d1f3b0b4c8a007aabee12218, type: 3}
   - {fileID: 267068697002509822, guid: 29bedebea63c8a342a3e92b9ba03ee2a, type: 3}
+  - {fileID: 4719179583315361395, guid: 154f09e9be7b0354abd3bdf1290a8c47, type: 3}
   _levelWidth: 7
   _levelHeight: 7
   _player: {fileID: 7075950412485286730, guid: 59c269fccaa480343834d44cf210ebc8, type: 3}
