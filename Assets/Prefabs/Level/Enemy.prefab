@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSounds: {fileID: 0}
-  item: {fileID: 7786936740401058321, guid: df680db1723b0e044bf823c0518cf577, type: 3}
+  item: {fileID: 2134391546900281315, guid: 48725ef502caafa4f98eefd89af139e4, type: 3}
   _currentHealth: 0
   _maxHealth: 60
 --- !u!114 &2937915413121240473
