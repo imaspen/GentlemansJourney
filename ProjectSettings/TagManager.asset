@@ -10,6 +10,7 @@ TagManager:
   - HealthBar
   - White Screen
   - Tea Cup
+  - Death Screen
   layers:
   - Default
   - TransparentFX
