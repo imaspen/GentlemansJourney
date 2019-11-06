@@ -1,21 +1,20 @@
 fileFormatVersion: 2
-guid: d9775f3ec70bb5d4494c4e48fe96b535
+guid: 31aa0cfa21b6c064cb2f65d868d1103d
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: default
+    2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Group53240
-    9500000: //RootNode
+    4300000: Object003
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: default
-    second: {fileID: 2100000, guid: 63dfb2d6c10226d4ea6bf8119bea4700, type: 2}
+      name: No Name
+    second: {fileID: 2100000, guid: 9a8e9e2eda37b7f4a9cef69a2f63b78e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -35,7 +34,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -46,7 +45,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.75
+    globalScale: 0.25
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -67,8 +66,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01905
-    hasPreviousCalculatedGlobalScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

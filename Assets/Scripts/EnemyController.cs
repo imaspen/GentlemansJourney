@@ -38,51 +38,31 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _navmeshCooldown += Time.deltaTime;
-        if (true)
+        if (Vector3.Distance(transform.position, _target.position) < maxDist * 0.8)
         {
-            if (Vector3.Distance(transform.position, _target.position) < maxDist)
-            {
-                _agent.isStopped = true;
-            }
-            else
-            {
-                _agent.isStopped = false;
-                _agent.SetDestination(_target.position);
-                _navmeshCooldown -= 1;
-            }
+            _agent.isStopped = true;
+        }
+        else
+        {
+            _agent.isStopped = false;
+            _agent.SetDestination(_target.position);
         }
         // rotate to face player
         transform.LookAt(new Vector3(_target.position.x, transform.position.y, _target.position.z));
 
-        //if (Vector3.Distance(transform.position, _target.position) >= maxDist)
-        //{
-        //    transform.position = Vector3.MoveTowards(transform.position, _target.position, moveSpeed * Time.deltaTime);
-        //}
-
-        if (isRanged) // handle ranged combat
+        // if it is time to shoot
+        if (_fireCooldown <= 0.0f)
         {
-            // if it is time to shoot
-            if (_fireCooldown <= 0.0f)
+            // if within range of target
+            if (Vector3.Distance(transform.position, _target.position) <= maxDist)
             {
-                // if within range of target
-                if (Vector3.Distance(transform.position, _target.position) <= maxDist)
-                {
-                    ghostSounds.SpitClip();
-                    Shoot();
-                }
-                // reset fireCountdown
-                _fireCooldown = 1.0f / rateOfFire;
+                ghostSounds.SpitClip();
+                Shoot();
             }
-            _fireCooldown -= Time.deltaTime;
+            // reset fireCountdown
+            _fireCooldown = 1.0f / rateOfFire;
         }
-        else if (isMelee) // handle melee combat
-        {
-            // get close to the player
-            maxDist = 0.25f;
-            // stab
-            Melee();
-        }        
+        _fireCooldown -= Time.deltaTime;   
     }
 
     void Shoot()
