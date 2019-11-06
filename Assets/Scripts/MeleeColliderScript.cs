@@ -10,6 +10,9 @@ public class MeleeColliderScript : MonoBehaviour
     private float enemyHealth;
     private HealthTracker enemyObject;
 
+    [SerializeField]
+    private float _damage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +31,7 @@ public class MeleeColliderScript : MonoBehaviour
         if (other.tag == "Enemy")
         {
             enemyObject = other.GetComponent<HealthTracker>();
-            enemyObject.ReduceHealth(20f);
+            enemyObject.ReduceHealth(_damage);
         }
     }
 }
