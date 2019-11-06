@@ -13,6 +13,14 @@ public class LevelGenerator : MonoBehaviour
     }
 
     [SerializeField]
+    private GameObject _endRoom;
+    public GameObject EndRoom
+    {
+        get { return _endRoom; }
+        set { _endRoom = value; }
+    }
+
+    [SerializeField]
     private int _roomCount = 8;
     public int RoomCount
     {
@@ -103,6 +111,22 @@ public class LevelGenerator : MonoBehaviour
                 }
             }
         }
+        while (true)
+        {
+            int posX = Random.Range(0, _levelHeight);
+            int posY = Random.Range(0, _levelWidth);
+            if (_layout[posX, posY] > 0) continue;
+
+            if ((posX > 0 && _layout[posX - 1, posY] > 0 ? 1 : 0)
+                + (posY > 0 && _layout[posX, posY - 1] > 0 ? 1 : 0)
+                + (posX < LevelWidth - 1 && _layout[posX + 1, posY] > 0 ? 1 : 0)
+                + (posY < LevelHeight - 1 && _layout[posX, posY + 1] > 0 ? 1 : 0)
+                == 1)
+            {
+                _layout[posX, posY] = Rooms.Count + 1;
+                break;
+            }
+        }
     }
 
     private void spawnRooms()
@@ -121,7 +145,9 @@ public class LevelGenerator : MonoBehaviour
                     GameObject room = z == _midpointZ && x == _midpointX 
                         ? StartRoom 
                         : Instantiate(
-                            Rooms[_layout[x, z] - 1], 
+                            (_layout[x, z] - 1 == Rooms.Count) 
+                                ? _endRoom 
+                                : Rooms[_layout[x, z] - 1], 
                             position, 
                             Quaternion.identity
                         );
