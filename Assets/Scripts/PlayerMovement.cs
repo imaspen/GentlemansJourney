@@ -7,8 +7,9 @@ public class PlayerMovement : MonoBehaviour
     CharacterController characterController;
 
     public float playerSpeed;
-    private Vector3 moveDirection = Vector3.zero;
-    private Vector3 lookDirection = Vector3.zero;
+    private Vector3 _moveDirection = Vector3.zero;
+    private Vector3 _lookDirection = Vector3.zero;
+    private float _cameraAngle;
 
     private float _roomMoveCooldown = 0.0f;
     public float RoomMoveCooldown
@@ -21,20 +22,22 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        //_cameraAngle = Camera.main.transform.rotation.y * Mathf.Rad2Deg;
+        _cameraAngle = -15;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
 
-        moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical"));
+        _moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical"));
 
-        if (moveDirection.magnitude > 0.95f)
+        if (_moveDirection.magnitude > 0.95f)
         {
-            moveDirection.Normalize();
-            moveDirection *= playerSpeed;
+            _moveDirection.Normalize();
+            _moveDirection *= playerSpeed;
 
-            characterController.Move(moveDirection);
+            characterController.Move(_moveDirection);
         }
 
 
@@ -48,9 +51,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (lookDirection.magnitude > 0.2f)
         {
+            Debug.Log(_cameraAngle);
             //transform.rotation = Quaternion.LookRotation(lookDirection);
             var angle = Mathf.Atan2(Input.GetAxis("LookHorizontal"), -Input.GetAxis("LookVertical")) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, angle, 0);
+            transform.rotation = Quaternion.Euler(0, angle + _cameraAngle, 0);
 
         }
     }
