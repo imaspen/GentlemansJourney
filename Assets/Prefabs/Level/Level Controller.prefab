@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startRoom: {fileID: 0}
+  _endRoom: {fileID: 5923028367428227518, guid: a95c0dc803446de4cbe5d6810113b2f9,
+    type: 3}
   _roomCount: 8
   _rooms:
   - {fileID: 4745238641412225859, guid: 9a92ea19fd0101144918d1082dd498c9, type: 3}
@@ -51,6 +53,8 @@ MonoBehaviour:
   - {fileID: 245812148595886270, guid: 5baf67ef53f7b3d4f8d6c37ca9d78f64, type: 3}
   - {fileID: 552469661808334000, guid: 62a34d6cab6ef9f45a533110967a235a, type: 3}
   - {fileID: 7471594620394740864, guid: f304f859a8ae95a4bb8d5d6f72dee158, type: 3}
+  - {fileID: 757891160281792866, guid: 9add68b7d1f3b0b4c8a007aabee12218, type: 3}
+  - {fileID: 267068697002509822, guid: 29bedebea63c8a342a3e92b9ba03ee2a, type: 3}
   _levelWidth: 7
   _levelHeight: 7
   _player: {fileID: 7075950412485286730, guid: 59c269fccaa480343834d44cf210ebc8, type: 3}
