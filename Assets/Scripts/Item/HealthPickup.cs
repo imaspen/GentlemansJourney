@@ -7,6 +7,8 @@ public class HealthPickup : MonoBehaviour
 
     HealthTracker playerHealth;
 
+    private bool itemPickedUp;
+
     [SerializeField]
     private float _healthBonus;
 
@@ -29,17 +31,22 @@ public class HealthPickup : MonoBehaviour
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthTracker>();
         audioSource = gameObject.GetComponent<AudioSource>();
         rend = GetComponent<Renderer>();
+        itemPickedUp = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (itemPickedUp == false)
         {
-            audioSource.PlayOneShot(pickupClip);
-            Debug.Log(playerHealth.CurrentHealth);
-            playerHealth.AddHealth(HealthBonus);
-            Debug.Log(playerHealth.CurrentHealth);
-            StartCoroutine(DestroySequence());
+            if (other.tag == "Player")
+            {
+                itemPickedUp = true;
+                audioSource.PlayOneShot(pickupClip);
+                Debug.Log(playerHealth.CurrentHealth);
+                playerHealth.AddHealth(HealthBonus);
+                Debug.Log(playerHealth.CurrentHealth);
+                StartCoroutine(DestroySequence());
+            }
         }
     }
 
@@ -48,6 +55,7 @@ public class HealthPickup : MonoBehaviour
         rend.enabled = false;
         gameObject.GetComponentInChildren<Light>().enabled = false;
         yield return new WaitForSeconds(1f);
+        itemPickedUp = false;
         Destroy(gameObject);
     }
 }
