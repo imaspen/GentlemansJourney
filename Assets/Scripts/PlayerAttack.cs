@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField]
+    private PlayerSounds playerSounds;
+
+    [SerializeField]
     private GameObject meleeCollider;
     private ScreenEffects cameraShake;
 
@@ -33,6 +36,7 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         cameraShake = Camera.main.GetComponent<ScreenEffects>();
+        playerSounds = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerSounds>();
     }
 
     IEnumerator MeleeAttack()
@@ -40,6 +44,8 @@ public class PlayerAttack : MonoBehaviour
         _cooldown = AttackSpeed;
         Debug.Log("Attack start");
         meleeCollider.SetActive(true);
+        playerSounds.HitClip();
+        playerSounds.SwingClip();
         yield return new WaitForSeconds(0.1f);
         meleeCollider.SetActive(false);
         Debug.Log("Attack end");

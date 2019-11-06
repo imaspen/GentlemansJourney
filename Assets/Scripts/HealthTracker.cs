@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class HealthTracker : MonoBehaviour
 {
+    [SerializeField]
+    private PlayerSounds playerSounds;
+
     private Image healthBar;
     private float percentileHP;
     private bool isPlayer = false;
@@ -70,6 +73,8 @@ public class HealthTracker : MonoBehaviour
 
     private void Start()
     {
+        playerSounds = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerSounds>();
+
         whiteScreenOn = false;
         redScreenOn = false;
 
@@ -90,6 +95,7 @@ public class HealthTracker : MonoBehaviour
         {
             if (redScreenOn == false)
             {
+                playerSounds.HurtClip();
                 percentileHP = CurrentHealth / MaxHealth;
                 healthBar.fillAmount = percentileHP;
                 cameraEffects.StartShake(0.04f, 0.08f);
@@ -142,6 +148,7 @@ public class HealthTracker : MonoBehaviour
         //Debug.Log(gameObject.name);
         redScreen.SetActive(true);
         redScreenOn = true;
+        //playerSounds.MeleeContactClip();
         yield return new WaitForSeconds(0.02f);
         redScreenOn = false;
         redScreen.SetActive(false);
@@ -157,6 +164,7 @@ public class HealthTracker : MonoBehaviour
         {
             whiteScreen.SetActive(true);
             whiteScreenOn = true;
+            playerSounds.MeleeContactClip();
             yield return new WaitForSeconds(0.02f);
             whiteScreenOn = false;
             whiteScreen.SetActive(false);
