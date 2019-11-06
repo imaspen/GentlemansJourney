@@ -1302,9 +1302,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSounds: {fileID: 0}
+  ghostSounds: {fileID: 0}
   item: {fileID: 0}
   _currentHealth: 50
-  _maxHealth: 5000
+  _maxHealth: 100
 --- !u!1 &8331000886649424213
 GameObject:
   m_ObjectHideFlags: 0
