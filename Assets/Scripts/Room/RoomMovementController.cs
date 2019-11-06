@@ -47,33 +47,38 @@ public class RoomMovementController : MonoBehaviour
         _rightDoor = transform.Find("Meshes/Right Door").gameObject;
         _enemies = transform.Find("Enemies");
     }
-    
+
+    private void Start()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player");
+        PlayerMovement = Player.GetComponent<PlayerMovement>();
+        CharacterController = Player.GetComponent<CharacterController>();
+    }
+
     public void InitDoors(GameObject frontRoom, GameObject backRoom, 
         GameObject leftRoom, GameObject rightRoom)
     {
-        if (!frontRoom) _frontDoor.SetActive(false);
-        if (!backRoom) _backDoor.SetActive(false);         
-        if (!leftRoom) _leftDoor.SetActive(false);         
-        if (!rightRoom) _rightDoor.SetActive(false);
+        Debug.Log(_frontDoor);
+        if (frontRoom == null) _frontDoor.SetActive(false);
+        if (backRoom == null) _backDoor.SetActive(false);         
+        if (leftRoom == null) _leftDoor.SetActive(false);         
+        if (rightRoom == null) _rightDoor.SetActive(false);
         _frontRoom = frontRoom;
         _backRoom = backRoom;
         _leftRoom = leftRoom;
         _rightRoom = rightRoom;
-        Player = GameObject.FindGameObjectWithTag("Player");
-        CharacterController = Player.GetComponent<CharacterController>();
-        PlayerMovement = Player.GetComponent<PlayerMovement>();
     }
 
     private void Update()
     {
-        _moveFlag = Input.GetAxis("Use") > 0.5;
+        _moveFlag = (Input.GetAxis("Use") > 0.5 
+            && PlayerMovement.RoomMoveCooldown <= 0 
+            && RoomEmpty());
     }
 
     private void FixedUpdate()
     {
-        if (PlayerMovement.RoomMoveCooldown <= 0
-            && _moveFlag //Move Key
-            && RoomEmpty())
+        if (_moveFlag)
         {
             if (CheckDoor(_frontDoor)) MoveRoom(_frontRoom, 0, -1);
             if (CheckDoor(_backDoor)) MoveRoom(_backRoom, 0, 1);
@@ -101,7 +106,7 @@ public class RoomMovementController : MonoBehaviour
     private bool CheckDoor(GameObject door)
     {
         return CharacterController.bounds.Intersects(
-            door.GetComponents<BoxCollider>()[1].bounds
+            door.GetComponent<BoxCollider>().bounds
         );
     }
 }

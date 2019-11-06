@@ -112,6 +112,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 929ac9c861b692f4f82d0b4c8b06ea83, type: 2}
+--- !u!1 &973186931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4126404126411860050, guid: c190e85e8b338fe42b6cf72f789fa89c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1262356683}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1262356683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -199,6 +205,31 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4126404126411860061, guid: c190e85e8b338fe42b6cf72f789fa89c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758511229468428534, guid: c190e85e8b338fe42b6cf72f789fa89c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332619649226729494, guid: c190e85e8b338fe42b6cf72f789fa89c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244584334513594544, guid: c190e85e8b338fe42b6cf72f789fa89c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1745490561853112512, guid: c190e85e8b338fe42b6cf72f789fa89c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c190e85e8b338fe42b6cf72f789fa89c, type: 3}
 --- !u!1 &1272657459 stripped
@@ -222,12 +253,6 @@ MonoBehaviour:
   camTransform: {fileID: 0}
   shakeDuration: 0
   decreaseFactor: 1
---- !u!1 &2029369929 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3153977599101025377, guid: c190e85e8b338fe42b6cf72f789fa89c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1262356683}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &483191610246401890
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -368,6 +393,6 @@ PrefabInstance:
         type: 3}
       propertyPath: _startRoom
       value: 
-      objectReference: {fileID: 2029369929}
+      objectReference: {fileID: 973186931}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d7a4332f70a9e64685847944c5cbd28, type: 3}
