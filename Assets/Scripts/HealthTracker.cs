@@ -58,12 +58,9 @@ public class HealthTracker : MonoBehaviour
         get { return _maxHealth; }
         set { _maxHealth = value; }
     }
-
-    // Start is called before the first frame update
+    
     void Awake()
     {
-        //whiteScreen = transform.Find("ScreenBlinkEnemy");
-
         cameraEffects = Camera.main.GetComponent<ScreenEffects>();
 
         CurrentHealth = MaxHealth;
@@ -80,11 +77,6 @@ public class HealthTracker : MonoBehaviour
         {
             ghostSounds = gameObject.GetComponentInChildren<GhostSounds>();
         }
-    }
-
-    private void Update()
-    {
-
     }
 
     private void Start()
@@ -104,9 +96,6 @@ public class HealthTracker : MonoBehaviour
 	
     public void ReduceHealth(float reduction)
     {
-
-        CurrentHealth -= reduction;
-
         if (isPlayer == true)
         {
             if (redScreenOn == false)
@@ -123,10 +112,11 @@ public class HealthTracker : MonoBehaviour
             if (whiteScreenOn == false)
             {
                 cameraEffects.StartShake(0.1f, 0.1f);
-                Debug.Log(whiteScreen);
                 StartCoroutine(ScreenBlinkEnemy());
             }
         }
+
+        CurrentHealth -= reduction;
     }
 
     public void AddHealth(float hp)
@@ -162,30 +152,20 @@ public class HealthTracker : MonoBehaviour
 
     IEnumerator ScreenBlinkPlayer()
     {
-        //Debug.Log(gameObject.name);
         redScreen.SetActive(true);
         redScreenOn = true;
-        //playerSounds.MeleeContactClip();
         yield return new WaitForSeconds(0.02f);
         redScreenOn = false;
         redScreen.SetActive(false);
-        //whiteScreen.SetActive(true);
-        //yield return new WaitForSeconds(0.025f);
-        //whiteScreen.SetActive(false);
     }
 
     IEnumerator ScreenBlinkEnemy()
     {
+        whiteScreen.SetActive(true);
+        whiteScreenOn = true;
+        playerSounds.MeleeContactClip();
+        yield return new WaitForSeconds(0.02f);
+        whiteScreenOn = false;
         whiteScreen.SetActive(false);
-        if (whiteScreenOn == false)
-        {
-            whiteScreen.SetActive(true);
-            whiteScreenOn = true;
-            playerSounds.MeleeContactClip();
-            yield return new WaitForSeconds(0.02f);
-            whiteScreenOn = false;
-            whiteScreen.SetActive(false);
-        }
-
     }
 }
