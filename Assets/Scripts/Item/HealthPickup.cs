@@ -33,11 +33,14 @@ public class HealthPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        audioSource.PlayOneShot(pickupClip);
-        Debug.Log(playerHealth.CurrentHealth);
-        playerHealth.AddHealth(HealthBonus);
-        Debug.Log(playerHealth.CurrentHealth);
-        StartCoroutine(DestroySequence());
+        if (other.tag == "Player")
+        {
+            audioSource.PlayOneShot(pickupClip);
+            Debug.Log(playerHealth.CurrentHealth);
+            playerHealth.AddHealth(HealthBonus);
+            Debug.Log(playerHealth.CurrentHealth);
+            StartCoroutine(DestroySequence());
+        }
     }
 
     IEnumerator DestroySequence()
