@@ -27,6 +27,8 @@ public class EnemyController : MonoBehaviour
     private float _navmeshCooldown;
     private GhostSounds ghostSounds;
 
+    public bool isStopped = false;
+
     private void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -38,7 +40,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, _target.position) < maxDist * 0.8)
+        if (Vector3.Distance(transform.position, _target.position) < maxDist * 0.8 || isStopped)
         {
             _agent.isStopped = true;
         }

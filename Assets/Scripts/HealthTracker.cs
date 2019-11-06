@@ -28,6 +28,8 @@ public class HealthTracker : MonoBehaviour
     [SerializeField]
     private float _currentHealth;
 
+    private KnockbackController _knockbackController;
+
     public float CurrentHealth
     {
         get { return _currentHealth; }
@@ -45,7 +47,11 @@ public class HealthTracker : MonoBehaviour
                 {
                     Destroy(gameObject);
                 }
- 
+
+            }
+            else if (_knockbackController)
+            {
+                StartCoroutine(_knockbackController.Knockback());
             }
         }
     }
@@ -82,6 +88,7 @@ public class HealthTracker : MonoBehaviour
     private void Start()
     {
         playerSounds = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerSounds>();
+        _knockbackController = GetComponent<KnockbackController>();
 
         whiteScreenOn = false;
         redScreenOn = false;
