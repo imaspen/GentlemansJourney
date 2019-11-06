@@ -29,6 +29,11 @@ public class HealthTracker : MonoBehaviour
     [SerializeField]
     private float _currentHealth;
 
+    [SerializeField]
+    private float _damageCooldown = 1.0f;
+    private float _cooldown;
+    private float _cooldownRatio;
+
     private KnockbackController _knockbackController;
 
     public float CurrentHealth
@@ -100,9 +105,16 @@ public class HealthTracker : MonoBehaviour
             whiteScreen = transform.Find("UI/ScreenBlinkEnemy").gameObject;
             redScreen = transform.Find("UI/ScreenBlinkPlayer").gameObject;
         }
+
+        _cooldown = _damageCooldown;
+        _cooldownRatio = 1 / _damageCooldown;
     }
 
-	
+	private void Update()
+    {
+        _cooldown += Time.deltaTime;
+    }
+
     public void ReduceHealth(float reduction)
     {
         if (isPlayer == true)
@@ -110,8 +122,6 @@ public class HealthTracker : MonoBehaviour
             if (redScreenOn == false)
             {
                 playerSounds.HurtClip();
-                percentileHP = CurrentHealth / MaxHealth;
-                healthBar.fillAmount = percentileHP;
                 cameraEffects.StartShake(0.04f, 0.08f);
                 StartCoroutine(ScreenBlinkPlayer());
             }
@@ -125,7 +135,14 @@ public class HealthTracker : MonoBehaviour
             }
         }
 
-        CurrentHealth -= reduction;
+        CurrentHealth -= reduction * (Mathf.Min(1, _cooldown * _cooldownRatio));
+        _cooldown = 0;
+
+        if (isPlayer == true)
+        {
+            percentileHP = CurrentHealth / MaxHealth;
+            healthBar.fillAmount = percentileHP;
+        }
     }
 
     public void AddHealth(float hp)
@@ -141,7 +158,7 @@ public class HealthTracker : MonoBehaviour
 
     void OnEnemyDeath()
     {
-        if (CurrentHealth == 0)
+        if (CurrentHealth <= 0)
         {
             ghostSounds.DeathClip();
             Destroy(gameObject);
