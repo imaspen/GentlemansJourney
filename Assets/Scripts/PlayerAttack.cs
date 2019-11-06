@@ -47,6 +47,7 @@ public class PlayerAttack : MonoBehaviour
         playerSounds.HitClip();
         playerSounds.SwingClip();
         yield return new WaitForSeconds(0.1f);
+        Debug.Log("hello");
         meleeCollider.SetActive(false);
         Debug.Log("Attack end");
     }

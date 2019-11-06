@@ -67,7 +67,7 @@ public class LevelGenerator : MonoBehaviour
 
     void Awake()
     {
-        Instantiate(Player, new Vector3(0, 0.4f, 0), Quaternion.identity);
+        Instantiate(Player, new Vector3(0, 0, 0), Quaternion.identity);
     }
 
     // Start is called before the first frame update
