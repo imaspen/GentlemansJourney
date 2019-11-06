@@ -107,6 +107,6 @@ public class RoomMovementController : MonoBehaviour
     {
         return CharacterController.bounds.Intersects(
             door.GetComponent<BoxCollider>().bounds
-        );
+        ) && door.activeInHierarchy;
     }
 }

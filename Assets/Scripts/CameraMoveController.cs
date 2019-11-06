@@ -27,7 +27,6 @@ public class CameraMoveController : MonoBehaviour
     {
         endRoom.SetActive(true);
         _target = endRoom.transform.Find("Camera Point");
-        Debug.Log(_target);
         _movementPerSecond = (_target.position - transform.position);
         yield return new WaitForSeconds(Speed);
         startRoom.SetActive(false);
