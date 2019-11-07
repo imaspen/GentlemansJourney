@@ -14,6 +14,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private float _attackSpeed = 1f;
 
+    private HealthTracker playerHealth;
+
     private Animator _anim;
     public float AttackSpeed
     {
@@ -30,13 +32,17 @@ public class PlayerAttack : MonoBehaviour
         _cooldown -= Time.deltaTime;
         if (Input.GetAxis("AttackMelee") != 0 && _cooldown <= 0)
         {
-            cameraShake.StartShake(0.02f, 0.025f);
-            StartCoroutine(MeleeAttack());
+            if (!playerHealth.hasDied)
+            {
+                cameraShake.StartShake(0.02f, 0.025f);
+                StartCoroutine(MeleeAttack());
+            }
         }
     }
 
     void Start()
     {
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthTracker>();
         cameraShake = Camera.main.GetComponent<ScreenEffects>();
         playerSounds = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerSounds>();
         _anim = GetComponentInChildren<Animator>();

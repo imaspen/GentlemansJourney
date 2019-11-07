@@ -124,6 +124,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Director
       objectReference: {fileID: 0}
+    - target: {fileID: 3087545160785541815, guid: 5e11bbd7f0c2eb7409da7fee0a3511e9,
+        type: 3}
+      propertyPath: m_TagString
+      value: GameDirector
+      objectReference: {fileID: 0}
     - target: {fileID: 3616513567159979966, guid: 5e11bbd7f0c2eb7409da7fee0a3511e9,
         type: 3}
       propertyPath: m_LocalPosition.x
