@@ -1,5 +1,34 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3393878302062922335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3945773337573612239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.071666665
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: cd32d840fd2c70c40b3748441aaeb24c, type: 2}
 --- !u!1001 &585585298676191197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -464,7 +493,7 @@ PrefabInstance:
     - target: {fileID: 7106071732847045807, guid: 54c3a6f7a01744d4f9a0237a6882b56e,
         type: 3}
       propertyPath: m_Name
-      value: Floor 2 Room Variant
+      value: Floor 2 Room 3
       objectReference: {fileID: 0}
     - target: {fileID: 7106071732847045792, guid: 54c3a6f7a01744d4f9a0237a6882b56e,
         type: 3}
@@ -523,6 +552,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54c3a6f7a01744d4f9a0237a6882b56e, type: 3}
+--- !u!1 &3945773337573612239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7106071732625871769, guid: 54c3a6f7a01744d4f9a0237a6882b56e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6079830251407690070}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3331481314515404864 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8819220134659784982, guid: 54c3a6f7a01744d4f9a0237a6882b56e,
