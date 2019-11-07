@@ -17,10 +17,13 @@ public class GameDirector : MonoBehaviour
     [SerializeField]
     private AudioClip deathStinger;
 
+    public HashSet<GameObject> CompletedRooms;
+
     // Start is called before the first frame update
     void Start()
         
     {
+        CompletedRooms = new HashSet<GameObject>();
         audioSource = GetComponent<AudioSource>();
         deathActive = false;
         player = GameObject.FindGameObjectWithTag("Player");

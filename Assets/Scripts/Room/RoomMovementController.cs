@@ -18,6 +18,9 @@ public class RoomMovementController : MonoBehaviour
 
     private bool _moveFlag;
 
+    private GameDirector _gameDirector;
+    private LevelGenerator _levelGenerator;
+
     private GameObject _player;
     public GameObject Player
     {
@@ -53,6 +56,10 @@ public class RoomMovementController : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         PlayerMovement = Player.GetComponent<PlayerMovement>();
         CharacterController = Player.GetComponent<CharacterController>();
+        _gameDirector = GameObject.Find("Game Director")
+            .GetComponent<GameDirector>();
+        _levelGenerator = GameObject.Find("Level Controller")
+            .GetComponent<LevelGenerator>();
     }
 
     public void InitDoors(GameObject frontRoom, GameObject backRoom, 
@@ -80,10 +87,10 @@ public class RoomMovementController : MonoBehaviour
     {
         if (_moveFlag)
         {
-            if (CheckDoor(_frontDoor)) MoveRoom(_frontRoom, 0, -1);
-            if (CheckDoor(_backDoor)) MoveRoom(_backRoom, 0, 1);
-            if (CheckDoor(_leftDoor)) MoveRoom(_leftRoom, -1, 0);
-            if (CheckDoor(_rightDoor)) MoveRoom(_rightRoom, 1, 0);
+            if (CheckDoor(_frontDoor, _frontRoom)) MoveRoom(_frontRoom, 0, -1);
+            if (CheckDoor(_backDoor, _backRoom)) MoveRoom(_backRoom, 0, 1);
+            if (CheckDoor(_leftDoor, _leftRoom)) MoveRoom(_leftRoom, -1, 0);
+            if (CheckDoor(_rightDoor, _rightRoom)) MoveRoom(_rightRoom, 1, 0);
         }
         _moveFlag = false;
     }
@@ -103,10 +110,15 @@ public class RoomMovementController : MonoBehaviour
         );
     }
 
-    private bool CheckDoor(GameObject door)
+    private bool CheckDoor(GameObject door, GameObject room)
     {
+        _gameDirector.CompletedRooms.Add(gameObject);
+        Debug.Log(_gameDirector.CompletedRooms.Count);
         return CharacterController.bounds.Intersects(
-            door.GetComponent<BoxCollider>().bounds
-        ) && door.activeInHierarchy;
+            door.GetComponent<BoxCollider>().bounds) 
+            && door.activeInHierarchy
+            && (room.name != $"{_levelGenerator.EndRoom.name}(Clone)" 
+                || _gameDirector.CompletedRooms.Count 
+                    == _levelGenerator.RoomCount + 1);
     }
 }
