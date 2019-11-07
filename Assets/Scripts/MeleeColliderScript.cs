@@ -38,8 +38,8 @@ public class MeleeColliderScript : MonoBehaviour
         if (other.tag == "Amulet")
         {
             Debug.Log("Found amulet");
-            amulet = other.GetComponent<AmuletBoss>();
-            amulet.TakeDamage(_damage);
+            //amulet = other.GetComponent<AmuletBoss>();
+            //amulet.TakeDamage(_damage);
         }
     }
 }

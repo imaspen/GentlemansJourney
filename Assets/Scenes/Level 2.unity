@@ -508,6 +508,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor 2 Start Room
       objectReference: {fileID: 0}
+    - target: {fileID: 6882156475622099284, guid: 52e26ed20ef6bda4ea3b7ebbbfc285c8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6882156475622099291, guid: 52e26ed20ef6bda4ea3b7ebbbfc285c8,
         type: 3}
       propertyPath: m_LocalPosition.x
