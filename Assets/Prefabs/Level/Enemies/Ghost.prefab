@@ -106,6 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghostDeathParticle: {fileID: 9153091702865230904, guid: a69a24944761bf044936d9abfbdbbe1e,
     type: 3}
+  hasDied: 0
   item: {fileID: 2134391546900281315, guid: 48725ef502caafa4f98eefd89af139e4, type: 3}
   _currentHealth: 0
   _damageCooldown: 0.25

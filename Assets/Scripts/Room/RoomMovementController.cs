@@ -119,6 +119,6 @@ public class RoomMovementController : MonoBehaviour
             && door.activeInHierarchy
             && (room.name != $"{_levelGenerator.EndRoom.name}(Clone)" 
                 || _gameDirector.CompletedRooms.Count 
-                    > /*_levelGenerator.RoomCount*/ 0);
+                    > _levelGenerator.RoomCount);
     }
 }
