@@ -47,12 +47,8 @@ public class PlayerMovement : MonoBehaviour
         RoomMoveCooldown -= Time.deltaTime;
         Vector3 lookDirection = new Vector3(Input.GetAxis("LookHorizontal"), 0, Input.GetAxis("LookVertical"));
 
-        //Debug.Log($"X: {lookDirection.x}, Z: {lookDirection.z}");
-
         if (lookDirection.magnitude > 0.2f)
         {
-            Debug.Log(_cameraAngle);
-            //transform.rotation = Quaternion.LookRotation(lookDirection);
             var angle = Mathf.Atan2(Input.GetAxis("LookHorizontal"), -Input.GetAxis("LookVertical")) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, angle + _cameraAngle, 0);
 
