@@ -13,22 +13,22 @@ public class CameraMoveController : MonoBehaviour
     
     private Transform _target;
     private Vector3 _movementPerSecond;
+    private Rigidbody _rigidbody;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        if (_target)
-        {
-            transform.position += _movementPerSecond * Time.deltaTime / Speed;
-        }
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     public IEnumerator Lerp(GameObject startRoom, GameObject endRoom)
     {
         endRoom.SetActive(true);
         _target = endRoom.transform.Find("Camera Point");
-        _movementPerSecond = (_target.position - transform.position);
+        _movementPerSecond = (_target.position - transform.position) / Speed;
+        _rigidbody.velocity = _movementPerSecond;
         yield return new WaitForSeconds(Speed);
+        _rigidbody.velocity = Vector3.zero;
+        transform.position = _target.position;
         startRoom.SetActive(false);
         endRoom.transform.Find("Enemies").gameObject.SetActive(true);
         _target = null;
