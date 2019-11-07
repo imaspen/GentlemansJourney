@@ -50,7 +50,7 @@ public class PlayerAttack : MonoBehaviour
         meleeCollider.SetActive(true);
         playerSounds.HitClip();
         playerSounds.SwingClip();
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         meleeCollider.SetActive(false);
         Debug.Log("Attack end");
         _anim.SetBool("RightPunch", false);

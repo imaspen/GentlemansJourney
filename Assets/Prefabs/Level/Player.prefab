@@ -1150,7 +1150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSounds: {fileID: 0}
   meleeCollider: {fileID: 8331000886649424213}
-  _attackSpeed: 0.25
+  _attackSpeed: 0.35
 --- !u!114 &6880439644914683632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1166,6 +1166,7 @@ MonoBehaviour:
   ghostDeathParticle: {fileID: 0}
   item: {fileID: 0}
   _currentHealth: 50
+  _damageCooldown: 1
   _maxHealth: 100
 --- !u!1 &8331000886649424213
 GameObject:
@@ -1225,7 +1226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 7075950412485286730}
-  _damage: 10
+  _damage: 20
 --- !u!1001 &4265853588733303042
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1313,6 +1314,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7075950412485286735}
     m_Modifications:
+    - target: {fileID: 4131770370210548533, guid: 47ec32c8030018a48b9620a05be36d03,
+        type: 3}
+      propertyPath: m_Name
+      value: UI
+      objectReference: {fileID: 0}
     - target: {fileID: 4131770370210548538, guid: 47ec32c8030018a48b9620a05be36d03,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1417,11 +1423,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4131770370210548533, guid: 47ec32c8030018a48b9620a05be36d03,
-        type: 3}
-      propertyPath: m_Name
-      value: UI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ec32c8030018a48b9620a05be36d03, type: 3}
