@@ -44,15 +44,29 @@ public class PlayerAttack : MonoBehaviour
 
     IEnumerator MeleeAttack()
     {
+        int randomAnim = Random.Range(0, 2);
         _cooldown = AttackSpeed;
         Debug.Log("Attack start");
-        _anim.SetBool("RightPunch", true);
+        if (randomAnim == 0)
+        {
+            _anim.SetBool("RightPunch", true);
+        } else if (randomAnim == 1)
+        {
+            _anim.SetBool("LeftPunch", true);
+        }
         meleeCollider.SetActive(true);
         playerSounds.HitClip();
         playerSounds.SwingClip();
         yield return new WaitForSeconds(0.3f);
         meleeCollider.SetActive(false);
         Debug.Log("Attack end");
-        _anim.SetBool("RightPunch", false);
+        if (randomAnim == 0)
+        {
+            _anim.SetBool("RightPunch", false);
+        }
+        else if (randomAnim == 1)
+        {
+            _anim.SetBool("LeftPunch", false);
+        }
     }
 }
