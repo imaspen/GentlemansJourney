@@ -40,7 +40,6 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         _animator.SetFloat("Speed", _agent.velocity.magnitude);
-        transform.LookAt(new Vector3(_target.position.x, transform.position.y, _target.position.z));
         
         if (_fireCooldown <= 0.0f)
         {

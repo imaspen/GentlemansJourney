@@ -139,7 +139,7 @@ ModelImporter:
     400132: //RootNode
     2100000: No Name
     4300000: Group1
-    7400000: Ghost Run
+    7400000: Skeleton Run
     9500000: //RootNode
     13700000: Group1
   externalObjects: {}
@@ -171,7 +171,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Ghost Run
+      name: Skeleton Run
       takeName: mixamo.com
       firstFrame: 0
       lastFrame: 24

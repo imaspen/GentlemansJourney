@@ -45,8 +45,10 @@ public class HealthTracker : MonoBehaviour
             {
                 if (gameObject.tag == "Enemy")
                 {
-                    Debug.Log("hety");
-                    Instantiate(ghostDeathParticle, gameObject.transform.position + new Vector3(0f, 0.7f, 0f), Quaternion.identity);
+                    if (ghostDeathParticle)
+                    {
+                        Instantiate(ghostDeathParticle, gameObject.transform.position + new Vector3(0f, 0.7f, 0f), Quaternion.identity);
+                    }
                     whiteScreen.SetActive(false);
                     DropItem();
                     OnEnemyDeath();
@@ -161,7 +163,10 @@ public class HealthTracker : MonoBehaviour
     {
         if (CurrentHealth <= 0)
         {
-            ghostSounds.DeathClip();
+            if (ghostSounds)
+            {
+                ghostSounds.DeathClip();
+            }
             Destroy(gameObject);
         }       
     }
