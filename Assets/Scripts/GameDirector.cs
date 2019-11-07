@@ -33,10 +33,8 @@ public class GameDirector : MonoBehaviour
         {
             if (!deathActive)
             {
-                audioSource.PlayOneShot(deathStinger);
-                DeathQuote();
+                //DeathQuote();
                 deathActive = true;
-                Instantiate(deathScreen);
             }
         }
     }
@@ -46,8 +44,10 @@ public class GameDirector : MonoBehaviour
         return deathClips[UnityEngine.Random.Range(0, deathClips.Length)];
     }
 
-    void DeathQuote()
+    public void DeathQuote()
     {
+        Instantiate(deathScreen);
+        audioSource.PlayOneShot(deathStinger);
         AudioClip clip = GetRandomDeathQuote();
         audioSource.PlayOneShot(clip);
     }

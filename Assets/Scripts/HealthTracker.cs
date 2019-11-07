@@ -5,12 +5,16 @@ using UnityEngine.UI;
 
 public class HealthTracker : MonoBehaviour
 {
+    GameDirector gameDirector;
+
     private PlayerSounds playerSounds;
 
     private GhostSounds ghostSounds;
 
     [SerializeField]
     private GameObject ghostDeathParticle;
+
+    public bool hasDied = false;
 
     private Image healthBar;
     private float percentileHP;
@@ -54,9 +58,10 @@ public class HealthTracker : MonoBehaviour
                     DropItem();
                     OnEnemyDeath();
                 }
-                else
+                else if (gameObject.tag == "Player")
                 {
                     _animator.SetBool("PlayerIsDead", true);
+                    StartCoroutine(DeathSequence());
                 }
 
             }
@@ -78,6 +83,8 @@ public class HealthTracker : MonoBehaviour
     
     void Awake()
     {
+        hasDied = false;
+
         cameraEffects = Camera.main.GetComponent<ScreenEffects>();
 
         CurrentHealth = MaxHealth;
@@ -201,5 +208,18 @@ public class HealthTracker : MonoBehaviour
         yield return new WaitForSeconds(0.02f);
         whiteScreenOn = false;
         whiteScreen.SetActive(false);
+    }
+
+    IEnumerator DeathSequence()
+    {
+        if (!hasDied)
+        {
+            hasDied = true;
+            gameDirector = GameObject.FindGameObjectWithTag("GameDirector").GetComponent<GameDirector>();
+            gameDirector.DeathQuote();
+            GetComponent<PlayerMovement>().IsMoveable = false;
+            yield return new WaitForSeconds(3f);
+            //Destroy(gameObject);
+        }
     }
 }
