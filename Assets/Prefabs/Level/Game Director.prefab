@@ -45,3 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathScreen: {fileID: 7389011032094878038, guid: 81b33ea29a045834f957bed5124b3519,
     type: 3}
+  deathClips:
+  - {fileID: 8300000, guid: 697e304bc1d7bff47bbbf1d9f6e6bfc3, type: 3}
+  - {fileID: 8300000, guid: deb16da9dc6caa546b827fabceaff3ca, type: 3}
+  - {fileID: 8300000, guid: fe2b858e65bc24c4293baccc6b57a686, type: 3}
+  - {fileID: 8300000, guid: 1ed2b87bcd3295641ac434bb2eeeb278, type: 3}

@@ -10,9 +10,15 @@ public class GameDirector : MonoBehaviour
     private GameObject deathScreen;
     private bool deathActive;
 
+    [SerializeField]
+    private AudioClip[] deathClips;
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
+        
     {
+        audioSource = GetComponent<AudioSource>();
         deathActive = false;
         player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -24,9 +30,21 @@ public class GameDirector : MonoBehaviour
         {
             if (!deathActive)
             {
+                DeathQuote();
                 deathActive = true;
                 Instantiate(deathScreen);
             }
         }
+    }
+
+    private AudioClip GetRandomDeathQuote()
+    {
+        return deathClips[UnityEngine.Random.Range(0, deathClips.Length)];
+    }
+
+    void DeathQuote()
+    {
+        AudioClip clip = GetRandomDeathQuote();
+        audioSource.PlayOneShot(clip);
     }
 }
