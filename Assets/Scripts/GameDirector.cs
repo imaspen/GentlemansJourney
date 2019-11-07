@@ -14,6 +14,9 @@ public class GameDirector : MonoBehaviour
     private AudioClip[] deathClips;
     private AudioSource audioSource;
 
+    [SerializeField]
+    private AudioClip deathStinger;
+
     // Start is called before the first frame update
     void Start()
         
@@ -30,6 +33,7 @@ public class GameDirector : MonoBehaviour
         {
             if (!deathActive)
             {
+                audioSource.PlayOneShot(deathStinger);
                 DeathQuote();
                 deathActive = true;
                 Instantiate(deathScreen);

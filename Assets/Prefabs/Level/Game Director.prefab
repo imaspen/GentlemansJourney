@@ -51,6 +51,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: deb16da9dc6caa546b827fabceaff3ca, type: 3}
   - {fileID: 8300000, guid: fe2b858e65bc24c4293baccc6b57a686, type: 3}
   - {fileID: 8300000, guid: 1ed2b87bcd3295641ac434bb2eeeb278, type: 3}
+  deathStinger: {fileID: 8300000, guid: 5a7778455a62da246bdd18904937147f, type: 3}
 --- !u!82 &6954911870899518943
 AudioSource:
   m_ObjectHideFlags: 0
