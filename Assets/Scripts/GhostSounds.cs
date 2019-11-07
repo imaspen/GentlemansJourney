@@ -18,7 +18,7 @@ public class GhostSounds : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GameObject.Find("audioSource").GetComponent<AudioSource>();
+        audioSource = gameObject.GetComponentInChildren<AudioSource>();
     }
 
     // Update is called once per frame

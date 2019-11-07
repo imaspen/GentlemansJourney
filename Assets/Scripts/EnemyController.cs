@@ -43,7 +43,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         _animator.SetFloat("Speed", _agent.velocity.magnitude);
-        if (Vector3.Distance(transform.position, _target.position) < maxDist * 0.8 || isStopped)
+        if (Vector3.Distance(transform.position, _target.position) < maxDist * 0.5 || isStopped)
         {
             _agent.isStopped = true;
         }
@@ -55,6 +55,7 @@ public class EnemyController : MonoBehaviour
         // rotate to face player
         transform.LookAt(new Vector3(_target.position.x, transform.position.y, _target.position.z));
 
+        Debug.Log(ghostSounds.name);
         // if it is time to shoot
         if (_fireCooldown <= 0.0f)
         {
