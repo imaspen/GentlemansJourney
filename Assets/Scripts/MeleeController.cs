@@ -58,7 +58,7 @@ public class MeleeController : MonoBehaviour
                 _isAttacking = false;
                 _animator.SetBool("Slashing", false);
             }
-            if (!_hit && _attackTimer > AttackDuration / 2)
+            if (!_hit && _attackTimer > AttackDuration / 1.5)
             {
                 if (_meleeCollider.bounds.Intersects(_playerCollider.bounds))
                 {

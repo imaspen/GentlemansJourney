@@ -16,6 +16,8 @@ TagManager:
   - BossSpawn02
   - BossSpawn03
   - BossSpawn04
+  - RightFootStep
+  - LeftFootStep
   layers:
   - Default
   - TransparentFX
