@@ -11,6 +11,7 @@ TagManager:
   - White Screen
   - Tea Cup
   - Death Screen
+  - Amulet
   layers:
   - Default
   - TransparentFX

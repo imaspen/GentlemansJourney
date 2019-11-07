@@ -126,6 +126,14 @@ public class HealthTracker : MonoBehaviour
                 StartCoroutine(ScreenBlinkPlayer());
             }
         }
+        else if (gameObject.tag == "Enemy")
+        {
+            if (whiteScreenOn == false)
+            {
+                cameraEffects.StartShake(0.1f, 0.1f);
+                StartCoroutine(ScreenBlinkEnemy());
+            }
+        }
         else
         {
             if (whiteScreenOn == false)
@@ -185,7 +193,7 @@ public class HealthTracker : MonoBehaviour
         redScreen.SetActive(false);
     }
 
-    IEnumerator ScreenBlinkEnemy()
+    public IEnumerator ScreenBlinkEnemy()
     {
         whiteScreen.SetActive(true);
         whiteScreenOn = true;

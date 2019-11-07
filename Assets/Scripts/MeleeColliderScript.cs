@@ -9,6 +9,7 @@ public class MeleeColliderScript : MonoBehaviour
     private GameObject playerObject;
     private float enemyHealth;
     private HealthTracker enemyObject;
+    private AmuletBoss amulet;
 
     [SerializeField]
     private float _damage;
@@ -32,6 +33,13 @@ public class MeleeColliderScript : MonoBehaviour
         {
             enemyObject = other.GetComponent<HealthTracker>();
             enemyObject.ReduceHealth(_damage);
+        }
+
+        if (other.tag == "Amulet")
+        {
+            Debug.Log("Found amulet");
+            amulet.GetComponent<AmuletBoss>();
+            amulet.TakeDamage(_damage);
         }
     }
 }
