@@ -26,7 +26,7 @@ public class AmuletBoss : MonoBehaviour
     public void TakeDamage(float damage)
     {
         Debug.Log("Amulet hit");
-        playerHP.ScreenBlinkEnemy();
+        //playerHP.ScreenBlinkEnemy();
         health = health - damage;
     }
 }

@@ -45,6 +45,7 @@ public class HealthTracker : MonoBehaviour
             {
                 if (gameObject.tag == "Enemy")
                 {
+                    Debug.Log("hety");
                     Instantiate(ghostDeathParticle, gameObject.transform.position + new Vector3(0f, 0.7f, 0f), Quaternion.identity);
                     whiteScreen.SetActive(false);
                     DropItem();
@@ -126,14 +127,6 @@ public class HealthTracker : MonoBehaviour
                 StartCoroutine(ScreenBlinkPlayer());
             }
         }
-        else if (gameObject.tag == "Enemy")
-        {
-            if (whiteScreenOn == false)
-            {
-                cameraEffects.StartShake(0.1f, 0.1f);
-                StartCoroutine(ScreenBlinkEnemy());
-            }
-        }
         else
         {
             if (whiteScreenOn == false)
@@ -193,7 +186,7 @@ public class HealthTracker : MonoBehaviour
         redScreen.SetActive(false);
     }
 
-    public IEnumerator ScreenBlinkEnemy()
+    IEnumerator ScreenBlinkEnemy()
     {
         whiteScreen.SetActive(true);
         whiteScreenOn = true;
