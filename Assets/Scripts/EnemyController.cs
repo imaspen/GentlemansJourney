@@ -28,8 +28,11 @@ public class EnemyController : MonoBehaviour
     private GhostSounds ghostSounds;
     private Animator _animator;
 
+    private HealthTracker playerHealth;
+
     private void Start()
     {
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthTracker>();
         _agent = GetComponent<NavMeshAgent>();
         _animator = GetComponentInChildren<Animator>();
         _target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -45,8 +48,11 @@ public class EnemyController : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, _target.position) <= maxDist)
             {
-                ghostSounds.SpitClip();
-                Shoot();
+                if (!playerHealth.hasDied)
+                {
+                    ghostSounds.SpitClip();
+                    Shoot();
+                }
             }
             _fireCooldown = 1.0f / rateOfFire;
         }
@@ -55,12 +61,15 @@ public class EnemyController : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bulletGO = Instantiate(
-            bulletPrefab, 
-            firePoint.position, 
-            firePoint.rotation
-        );
-        Bullet bullet = bulletGO.GetComponent<Bullet>();
-        if (bullet != null) bullet.Seek(_target);
+        if (!playerHealth.hasDied)
+        {
+            GameObject bulletGO = Instantiate(
+    bulletPrefab,
+    firePoint.position,
+    firePoint.rotation
+);
+            Bullet bullet = bulletGO.GetComponent<Bullet>();
+            if (bullet != null) bullet.Seek(_target);
+        }
     }
 }

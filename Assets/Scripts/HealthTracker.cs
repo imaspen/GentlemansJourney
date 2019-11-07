@@ -105,6 +105,7 @@ public class HealthTracker : MonoBehaviour
 
     private void Start()
     {
+        hasDied = false;
         playerSounds = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerSounds>();
         _knockbackController = GetComponent<KnockbackController>();
         _animator = GetComponentInChildren<Animator>();
@@ -133,9 +134,12 @@ public class HealthTracker : MonoBehaviour
         {
             if (redScreenOn == false)
             {
-                playerSounds.HurtClip();
-                cameraEffects.StartShake(0.04f, 0.08f);
-                StartCoroutine(ScreenBlinkPlayer());
+                if (!hasDied)
+                {
+                    playerSounds.HurtClip();
+                    cameraEffects.StartShake(0.04f, 0.08f);
+                    StartCoroutine(ScreenBlinkPlayer());
+                }
             }
         }
         else
@@ -214,6 +218,7 @@ public class HealthTracker : MonoBehaviour
     {
         if (!hasDied)
         {
+            Debug.Log("DEAD");
             hasDied = true;
             gameDirector = GameObject.FindGameObjectWithTag("GameDirector").GetComponent<GameDirector>();
             gameDirector.DeathQuote();
