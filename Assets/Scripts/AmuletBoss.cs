@@ -125,12 +125,14 @@ public class AmuletBoss : MonoBehaviour
     private void WinGame()
     {
         Debug.Log("You win!");
+        _animator.SetTrigger("Die");
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (_bossEnemies.childCount == 0)
         {
+            _animator.SetTrigger("Hit");
             if (++_hitCount >= 3)
             {
                 _wave.MoveNext();
