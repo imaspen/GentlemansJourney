@@ -6,11 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     CharacterController characterController;
 
-    [SerializeField]
-    private GameObject footstepParticle;
-    private Transform leftFootLocation;
-    private Transform rightFootLocation;
-
     public float playerSpeed;
     private Vector3 _moveDirection = Vector3.zero;
     private Vector3 _lookDirection = Vector3.zero;
@@ -27,8 +22,6 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        leftFootLocation = GameObject.FindGameObjectWithTag("LeftFootStep").transform;
-        rightFootLocation = GameObject.FindGameObjectWithTag("RightFootStep").transform;
         characterController = GetComponent<CharacterController>();
         _animator = GetComponentInChildren<Animator>();
         //_cameraAngle = Camera.main.transform.rotation.y * Mathf.Rad2Deg;
@@ -66,15 +59,5 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, angle + _cameraAngle, 0);
 
         }
-    }
-
-    public void LeftFootstepEffect()
-    {
-        Instantiate(footstepParticle, leftFootLocation.position, Quaternion.identity);
-    }
-
-    public void RightFootstepEffect()
-    {
-        Instantiate(footstepParticle, rightFootLocation.position, Quaternion.identity);
     }
 }

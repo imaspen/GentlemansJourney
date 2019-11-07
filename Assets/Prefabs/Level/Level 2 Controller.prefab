@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6504494162400340942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6504494162400340940}
+  - component: {fileID: 6504494162400340941}
+  m_Layer: 0
+  m_Name: Level 2 Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6504494162400340940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6504494162400340942}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6504494162400340941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6504494162400340942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54acee4a3b05d6040968bb91a917a0ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startRoom: {fileID: 0}
+  _endRoom: {fileID: 9008609090490654113, guid: d5c5a3b0589589d4a956d03d9d947a44,
+    type: 3}
+  _roomCount: 8
+  _rooms:
+  - {fileID: 1525788924840984890, guid: b00cd8e9297bb27478608f9eb754cd3a, type: 3}
+  - {fileID: 8959109131083483693, guid: 3c194bccac1fe374ca4d8ae810a416c2, type: 3}
+  - {fileID: 3945773337285666297, guid: ad0dafcff24acdf45b0390921dce246e, type: 3}
+  - {fileID: 3514485911181607439, guid: 346405589070c224db46a9aef4d7837f, type: 3}
+  - {fileID: 4580705191092066775, guid: ad9e94f60236bb94f82db6507ff17eab, type: 3}
+  - {fileID: 6396413621601898475, guid: bc2448b7c07fde346b787ef8e814f16a, type: 3}
+  - {fileID: 7795511103461599969, guid: b6fe4ae709fd69546ae56a235a8c3d2e, type: 3}
+  - {fileID: 8634660910128520771, guid: e623ddeeb38d42744b9b049b0837f417, type: 3}
+  _levelWidth: 7
+  _levelHeight: 7
+  _player: {fileID: 7075950412485286730, guid: 59c269fccaa480343834d44cf210ebc8, type: 3}
