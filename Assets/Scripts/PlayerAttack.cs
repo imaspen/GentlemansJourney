@@ -13,6 +13,8 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField]
     private float _attackSpeed = 1f;
+
+    private Animator _anim;
     public float AttackSpeed
     {
         get { return _attackSpeed; }
@@ -37,18 +39,20 @@ public class PlayerAttack : MonoBehaviour
     {
         cameraShake = Camera.main.GetComponent<ScreenEffects>();
         playerSounds = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerSounds>();
+        _anim = GetComponentInChildren<Animator>();
     }
 
     IEnumerator MeleeAttack()
     {
         _cooldown = AttackSpeed;
         Debug.Log("Attack start");
+        _anim.SetBool("RightPunch", true);
         meleeCollider.SetActive(true);
         playerSounds.HitClip();
         playerSounds.SwingClip();
         yield return new WaitForSeconds(0.1f);
-        Debug.Log("hello");
         meleeCollider.SetActive(false);
         Debug.Log("Attack end");
+        _anim.SetBool("RightPunch", false);
     }
 }

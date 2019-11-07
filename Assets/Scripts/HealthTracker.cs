@@ -33,6 +33,7 @@ public class HealthTracker : MonoBehaviour
     private float _damageCooldown = 1.0f;
     private float _cooldown;
     private float _cooldownRatio;
+    private Animator _animator;
 
     private KnockbackController _knockbackController;
 
@@ -55,7 +56,7 @@ public class HealthTracker : MonoBehaviour
                 }
                 else
                 {
-                    Destroy(gameObject);
+                    _animator.SetBool("PlayerIsDead", true);
                 }
 
             }
@@ -99,6 +100,7 @@ public class HealthTracker : MonoBehaviour
     {
         playerSounds = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerSounds>();
         _knockbackController = GetComponent<KnockbackController>();
+        _animator = GetComponentInChildren<Animator>();
 
         whiteScreenOn = false;
         redScreenOn = false;

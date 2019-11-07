@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private float _cameraAngle;
 
     private float _roomMoveCooldown = 0.0f;
+    private Animator _animator;
     public float RoomMoveCooldown
     {
         get { return _roomMoveCooldown; }
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        _animator = GetComponentInChildren<Animator>();
         //_cameraAngle = Camera.main.transform.rotation.y * Mathf.Rad2Deg;
         _cameraAngle = -15;
     }
@@ -38,6 +40,10 @@ public class PlayerMovement : MonoBehaviour
             _moveDirection *= playerSpeed;
 
             characterController.Move(_moveDirection);
+            _animator.SetBool("Moving", true);
+        } else
+        {
+            _animator.SetBool("Moving", false);
         }
 
 
