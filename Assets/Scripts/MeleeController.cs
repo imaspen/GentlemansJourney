@@ -13,9 +13,11 @@ public class MeleeController : MonoBehaviour
     private bool _isAttacking;
     private float _attackTimer;
     private bool _hit;
+    private float _cooldown;
 
     public float AttackDistance = 0.5f;
     public float AttackDuration = 2f;
+    public float AttackCooldown = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -37,8 +39,9 @@ public class MeleeController : MonoBehaviour
     {
         if (!_isAttacking)
         {
+            _cooldown += Time.deltaTime;
             if (Vector3.Distance(transform.position, _playerTransform.position) 
-                <= AttackDistance)
+                <= AttackDistance && _cooldown > AttackCooldown)
             {
                 _playerTracker.isStopped = true;
                 _isAttacking = true;
@@ -57,8 +60,9 @@ public class MeleeController : MonoBehaviour
                 _playerTracker.isStopped = false;
                 _isAttacking = false;
                 _animator.SetBool("Slashing", false);
+                _cooldown = 0.0f;
             }
-            if (!_hit && _attackTimer > AttackDuration / 2)
+            if (!_hit && _attackTimer > AttackDuration / 1.5)
             {
                 if (_meleeCollider.bounds.Intersects(_playerCollider.bounds))
                 {
