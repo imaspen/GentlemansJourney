@@ -28,14 +28,11 @@ public class EnemyController : MonoBehaviour
     private GhostSounds ghostSounds;
     private Animator _animator;
 
-    public bool isStopped = false;
-
     private void Start()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        _target = player.transform;
         _agent = GetComponent<NavMeshAgent>();
         _animator = GetComponentInChildren<Animator>();
+        _target = GameObject.FindGameObjectWithTag("Player").transform;
         ghostSounds = GetComponentInChildren<GhostSounds>();
     }
 
@@ -43,28 +40,15 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         _animator.SetFloat("Speed", _agent.velocity.magnitude);
-        if (Vector3.Distance(transform.position, _target.position) < maxDist * 0.5 || isStopped)
-        {
-            _agent.isStopped = true;
-        }
-        else
-        {
-            _agent.isStopped = false;
-            _agent.SetDestination(_target.position);
-        }
-        // rotate to face player
         transform.LookAt(new Vector3(_target.position.x, transform.position.y, _target.position.z));
-
-        // if it is time to shoot
+        
         if (_fireCooldown <= 0.0f)
         {
-            // if within range of target
             if (Vector3.Distance(transform.position, _target.position) <= maxDist)
             {
                 ghostSounds.SpitClip();
                 Shoot();
             }
-            // reset fireCountdown
             _fireCooldown = 1.0f / rateOfFire;
         }
         _fireCooldown -= Time.deltaTime;   
@@ -72,17 +56,12 @@ public class EnemyController : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bulletGO = Instantiate(
+            bulletPrefab, 
+            firePoint.position, 
+            firePoint.rotation
+        );
         Bullet bullet = bulletGO.GetComponent<Bullet>();
-
-        if (bullet != null)
-        {
-            bullet.Seek(_target);
-        }
-    }
-
-    void Melee()
-    {
-        // stabby stabby stab stab
+        if (bullet != null) bullet.Seek(_target);
     }
 }
