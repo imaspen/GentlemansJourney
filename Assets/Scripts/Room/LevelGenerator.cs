@@ -64,6 +64,7 @@ public class LevelGenerator : MonoBehaviour
     private GameObject[,] _map;
     private int _midpointX;
     private int _midpointZ;
+    private List<int> _usedRooms;
 
     void Awake()
     {
@@ -77,6 +78,8 @@ public class LevelGenerator : MonoBehaviour
         _midpointX = (LevelWidth - 1) / 2;
         _midpointZ = (LevelHeight - 1) / 2;
         _layout[_midpointX, _midpointZ] = 0;
+        _usedRooms = new List<int>();
+        _usedRooms.Add(0);
 
         generateLayout();
         spawnRooms();
@@ -100,7 +103,11 @@ public class LevelGenerator : MonoBehaviour
                     || (posX < LevelWidth - 1 && _layout[posX + 1, posY] > 0)
                     || (posY < LevelHeight - 1 && _layout[posX, posY + 1] > 0))
                 {
-                    _layout[posX, posY] = Random.Range(1, Rooms.Count + 1);
+                    int nextRoom = 0;
+                    while (_usedRooms.Contains(nextRoom))
+                        nextRoom = Random.Range(1, Rooms.Count + 1);
+                    _usedRooms.Add(nextRoom);
+                    _layout[posX, posY] = nextRoom;
                     break;
                 }
                 if (j++ > 1000)
