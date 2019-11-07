@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   rateOfFire: 1
-  maxDist: 3
+  maxDist: 2
   isRanged: 1
   isMelee: 0
   bulletPrefab: {fileID: 5748181692235621949, guid: 2a5058151a8f8da49978ed30e9b2cb66,
