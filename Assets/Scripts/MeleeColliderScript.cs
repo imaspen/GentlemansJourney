@@ -35,11 +35,11 @@ public class MeleeColliderScript : MonoBehaviour
             enemyObject.ReduceHealth(_damage);
         }
 
-        //if (other.tag == "Amulet")
-        //{
-        //    Debug.Log("Found amulet");
-        //    amulet = other.GetComponent<AmuletBoss>();
-        //    amulet.TakeDamage(_damage);
-        //}
+        if (other.tag == "Amulet")
+        {
+            Debug.Log("Found amulet");
+            amulet = other.GetComponent<AmuletBoss>();
+            amulet.TakeDamage(_damage);
+        }
     }
 }

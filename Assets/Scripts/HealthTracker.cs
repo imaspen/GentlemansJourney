@@ -186,7 +186,7 @@ public class HealthTracker : MonoBehaviour
         redScreen.SetActive(false);
     }
 
-    IEnumerator ScreenBlinkEnemy()
+    public IEnumerator ScreenBlinkEnemy()
     {
         whiteScreen.SetActive(true);
         whiteScreenOn = true;

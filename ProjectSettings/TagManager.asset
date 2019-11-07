@@ -12,6 +12,10 @@ TagManager:
   - Tea Cup
   - Death Screen
   - Amulet
+  - BossSpawn01
+  - BossSpawn02
+  - BossSpawn03
+  - BossSpawn04
   layers:
   - Default
   - TransparentFX
