@@ -55,7 +55,6 @@ public class EnemyController : MonoBehaviour
         // rotate to face player
         transform.LookAt(new Vector3(_target.position.x, transform.position.y, _target.position.z));
 
-        Debug.Log(ghostSounds.name);
         // if it is time to shoot
         if (_fireCooldown <= 0.0f)
         {
