@@ -21,6 +21,7 @@ public class PlayerTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.LookAt(new Vector3(_player.position.x, transform.position.y, _player.position.z));
         if (isStopped)
         {
             _agent.isStopped = true;
@@ -30,7 +31,6 @@ public class PlayerTracker : MonoBehaviour
         var vectorTo = transform.position - _player.position;
         vectorTo.Normalize();
         _agent.SetDestination(_player.position);
-        transform.LookAt(new Vector3(_player.position.x, transform.position.y, _player.position.z));
 
         _agent.isStopped = _agent.remainingDistance <= FollowDistance;
     }
