@@ -1,4 +1,4 @@
-# GentlemansJourney
+# A Gentleman's Journey
 The first 2nd year University game jam game!
 
 ## Credits
