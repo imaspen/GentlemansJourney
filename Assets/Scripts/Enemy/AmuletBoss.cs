@@ -125,6 +125,14 @@ public class AmuletBoss : MonoBehaviour
         else enemy.GetComponent<MeleeController>().enabled = state;
         enemy.GetComponent<NavMeshAgent>().enabled = state;
         enemy.GetComponent<PlayerTracker>().enabled = state;
+        var rb = enemy.GetComponent<Rigidbody>();
+        if (enemy.name.Contains("Ghost"))
+        {
+            enemy.GetComponent<Collider>().isTrigger = state;
+        }
+        rb.freezeRotation = !state;
+        rb.useGravity = !state;
+        rb.isKinematic = state;
     }
 
     private void TogglePlayer(bool state)
