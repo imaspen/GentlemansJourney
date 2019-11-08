@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &4027072598921284844
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6900912845392158803}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0880145, y: 0.50941515, z: 0.44825444}
+  m_Center: {x: -0.0031514764, y: 0.004125297, z: -0.017632023}
 --- !u!114 &6761632611504779761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,6 +320,18 @@ PrefabInstance:
     - target: {fileID: 2101749429217058761, guid: 173428566e59f4544aae5c3b41fb8465,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 863858851, guid: 173428566e59f4544aae5c3b41fb8465, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.072
+      objectReference: {fileID: 0}
+    - target: {fileID: 863858851, guid: 173428566e59f4544aae5c3b41fb8465, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.545
+      objectReference: {fileID: 0}
+    - target: {fileID: 863858851, guid: 173428566e59f4544aae5c3b41fb8465, type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -853,6 +878,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e93509ca6484d3468ebe444809656b8, type: 3}
+--- !u!1 &6900912845392158803 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 9e93509ca6484d3468ebe444809656b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6900912845392062195}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6927816789237746391
 PrefabInstance:
   m_ObjectHideFlags: 0
