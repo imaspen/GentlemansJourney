@@ -114,12 +114,22 @@ public class RoomMovementController : MonoBehaviour
     {
         _gameDirector.CompletedRooms.Add(gameObject);
         Debug.Log(_gameDirector.CompletedRooms.Count);
-        bool lockedDoor = room.name != $"{_levelGenerator.EndRoom.name}(Clone)"
-            || _gameDirector.CompletedRooms.Count > _levelGenerator.RoomCount;
-        
-        return CharacterController.bounds.Intersects(
-            door.GetComponent<BoxCollider>().bounds) 
-            && door.activeInHierarchy
-            && (lockedDoor);
+
+        if (!CharacterController.bounds.Intersects(
+            door.GetComponent<BoxCollider>().bounds)) return false;
+
+        if (!door.activeInHierarchy) return false;
+
+        if ((room.name != $"{_levelGenerator.EndRoom.name}(Clone)"
+                || _gameDirector.CompletedRooms.Count
+                    > _levelGenerator.RoomCount))
+        {
+            return true;
+        }
+        else
+        {
+            //play locked noise
+            return false;
+        }
     }
 }
