@@ -50,20 +50,13 @@ public class HealthTracker : MonoBehaviour
             {
                 if (gameObject.tag == "Enemy")
                 {
-                    if (ghostDeathParticle)
-                    {
-                        Instantiate(ghostDeathParticle, gameObject.transform.position + new Vector3(0f, 0.7f, 0f), Quaternion.identity);
-                    }
-                    whiteScreen.SetActive(false);
-                    DropItem();
-                    OnEnemyDeath();
+                    StartCoroutine(DeathSequence());
                 }
                 else if (gameObject.tag == "Player")
                 {
                     _animator.SetBool("PlayerIsDead", true);
                     StartCoroutine(DeathSequence());
                 }
-
             }
             else if (_knockbackController)
             {
@@ -180,6 +173,7 @@ public class HealthTracker : MonoBehaviour
             {
                 ghostSounds.DeathClip();
             }
+            
             Destroy(gameObject);
         }       
     }
@@ -216,7 +210,7 @@ public class HealthTracker : MonoBehaviour
 
     IEnumerator DeathSequence()
     {
-        if (!hasDied)
+        if (!hasDied && gameObject.tag == "Player")
         {
             Debug.Log("DEAD");
             hasDied = true;
