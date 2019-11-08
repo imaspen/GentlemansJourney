@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 7389011032094878038, guid: 81b33ea29a045834f957bed5124b3519,
         type: 3}
       propertyPath: m_Name
-      value: DeathScreen
+      value: VictoryScreen
       objectReference: {fileID: 0}
     - target: {fileID: 7389011032094878026, guid: 81b33ea29a045834f957bed5124b3519,
         type: 3}
@@ -116,6 +116,68 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177162799191267802, guid: 81b33ea29a045834f957bed5124b3519,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -154
+      objectReference: {fileID: 0}
+    - target: {fileID: 7389011033735638338, guid: 81b33ea29a045834f957bed5124b3519,
+        type: 3}
+      propertyPath: m_text
+      value: 'Congratulations!
+
+        You have banished the spirits!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7389011033735638338, guid: 81b33ea29a045834f957bed5124b3519,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7389011033735638338, guid: 81b33ea29a045834f957bed5124b3519,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7389011033735638338, guid: 81b33ea29a045834f957bed5124b3519,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 7389011033735638338, guid: 81b33ea29a045834f957bed5124b3519,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7389011033735638338, guid: 81b33ea29a045834f957bed5124b3519,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7389011033735638338, guid: 81b33ea29a045834f957bed5124b3519,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7389011033735638338, guid: 81b33ea29a045834f957bed5124b3519,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7389011033735638338, guid: 81b33ea29a045834f957bed5124b3519,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.0082166195
+      objectReference: {fileID: 0}
+    - target: {fileID: 7389011033735638338, guid: 81b33ea29a045834f957bed5124b3519,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7389011033735638338, guid: 81b33ea29a045834f957bed5124b3519,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 65282
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81b33ea29a045834f957bed5124b3519, type: 3}

@@ -148,6 +148,7 @@ public class AmuletBoss : MonoBehaviour
 
     private void WinGame()
     {
+        gameDirector.VictoryScreen();
         Debug.Log("You win!");
         _animator.SetTrigger("Die");
     }

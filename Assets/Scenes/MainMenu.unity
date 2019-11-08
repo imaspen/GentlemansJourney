@@ -1663,9 +1663,9 @@ MonoBehaviour:
     Simonsen-Burt as the Butler\r\n\r\n - - - - Sources - - - -\nSound effects edited
     and mixed from the following sources:\r\nNanakisan, xtrgamr, Robinhood76, the_very_Real_Horst,
     loudernoises, Noisecollector,  RICHERlandTV, shadoWisp, AugustSandberg, SailorErick,
-    kyles, spookymodem, and AntumDeluge from Freesound.org\r\nMike Koenig on Soundbible.com\r\n\r\nAnimations
-    by Mixamo\r\n\r\nAll paintings are public domain scans by the Metropolitan Museum
-    of Art\r\n"
+    kyles, spookymodem, and AntumDeluge from Freesound.org\r\nMike Koenig on Soundbible.com
+    / Music by Incomputech.com\n\r\nAnimations by Mixamo\r\n\r\nAll paintings are
+    public domain scans by the Metropolitan Museum of Art\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a931c65d19712104ea146c2f3a6f5b2b, type: 2}
   m_sharedMaterial: {fileID: 21394771361534350, guid: a931c65d19712104ea146c2f3a6f5b2b,
@@ -1735,10 +1735,10 @@ MonoBehaviour:
   m_margin: {x: -111.7121, y: 0, z: -838.4988, w: 0}
   m_textInfo:
     textComponent: {fileID: 1032899485}
-    characterCount: 669
+    characterCount: 695
     spriteCount: 0
-    spaceCount: 106
-    wordCount: 100
+    spaceCount: 110
+    wordCount: 104
     linkCount: 0
     lineCount: 26
     pageCount: 1
@@ -2380,7 +2380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1295928317
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2421,7 +2421,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1297238972
 RectTransform:
   m_ObjectHideFlags: 0

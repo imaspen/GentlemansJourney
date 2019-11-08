@@ -24,6 +24,9 @@ public class GameDirector : MonoBehaviour
     [SerializeField]
     private GameObject bossMusic;
 
+    [SerializeField]
+    private GameObject victoryScreen;
+
     public HashSet<GameObject> CompletedRooms;
 
     // Start is called before the first frame update
@@ -75,5 +78,10 @@ public class GameDirector : MonoBehaviour
     public void SpawnBossMusic()
     {
         Instantiate(bossMusic);
+    }
+
+    public void VictoryScreen()
+    {
+        Instantiate(victoryScreen);
     }
 }
