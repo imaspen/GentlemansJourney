@@ -17,6 +17,9 @@ public class GameDirector : MonoBehaviour
     [SerializeField]
     private AudioClip deathStinger;
 
+    [SerializeField]
+    private AudioClip doorLockedButler;
+
     public HashSet<GameObject> CompletedRooms;
 
     // Start is called before the first frame update
@@ -53,5 +56,10 @@ public class GameDirector : MonoBehaviour
         audioSource.PlayOneShot(deathStinger);
         AudioClip clip = GetRandomDeathQuote();
         audioSource.PlayOneShot(clip);
+    }
+
+    public void DoorLockedQuote()
+    {
+        audioSource.PlayOneShot(doorLockedButler);
     }
 }
