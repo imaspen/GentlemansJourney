@@ -192,7 +192,12 @@ public class HealthTracker : MonoBehaviour
         if (item != null)
         {
             if (randomNum >= 0.55f)
-            Instantiate(item, gameObject.transform.position + new Vector3(0, 0.3f, 0), Quaternion.identity);
+            {
+                var drop = Instantiate(item, transform.parent.parent);
+                drop.transform.position = gameObject.transform.position 
+                    + new Vector3(0, 0.3f, 0);
+                drop.transform.rotation = Quaternion.identity;
+            }
         }
     }
 
