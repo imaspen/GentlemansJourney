@@ -5,7 +5,9 @@ using UnityEngine.AI;
 
 public class AmuletBoss : MonoBehaviour
 {
-    private PlayerMovement _player;
+    private PlayerMovement _playerMovement;
+    private PlayerAttack _playerAttack;
+    private Animator _playerAnimator;
     private Animator _animator;
     private Transform _spawnPoints;
     private Transform _bossEnemies;
@@ -18,11 +20,14 @@ public class AmuletBoss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        var player = GameObject.FindGameObjectWithTag("Player");
+        _playerMovement = player.GetComponent<PlayerMovement>();
+        _playerAttack = player.GetComponent<PlayerAttack>();
+        _playerAnimator = player.GetComponentInChildren<Animator>();
+
         _animator = GetComponent<Animator>();
         _spawnPoints = transform.parent.parent.Find("Spawn Points");
         _bossEnemies = transform.parent.parent.Find("Boss Enemies");
-        _player = GameObject.FindGameObjectWithTag("Player")
-            .GetComponent<PlayerMovement>();
         _wave = SpawnWave();
         _wave.MoveNext();
     }
@@ -42,7 +47,7 @@ public class AmuletBoss : MonoBehaviour
 
     private IEnumerator SpawnWave1()
     {
-        _player.enabled = false;
+        TogglePlayer(false);
         for (int i = 0; i < _spawnPoints.childCount; i++)
         {
             var spawnPoint = _spawnPoints.GetChild(i);
@@ -56,11 +61,11 @@ public class AmuletBoss : MonoBehaviour
         {
             SetState(_bossEnemies.GetChild(i).gameObject, true);
         }
-        _player.enabled = true;
+        TogglePlayer(true);
     }
     private IEnumerator SpawnWave2()
     {
-        _player.enabled = false;
+        TogglePlayer(false);
         for (int i = 0; i < _spawnPoints.childCount; i += 2)
         {
             var spawnPoint = _spawnPoints.GetChild(i);
@@ -74,11 +79,11 @@ public class AmuletBoss : MonoBehaviour
         {
             SetState(_bossEnemies.GetChild(i).gameObject, true);
         }
-        _player.enabled = true;
+        TogglePlayer(true);
     }
     private IEnumerator SpawnWave3()
     {
-        _player.enabled = false;
+        TogglePlayer(false);
         for (int i = 0; i < _spawnPoints.childCount; i++)
         {
             var spawnPoint = _spawnPoints.GetChild(i);
@@ -92,11 +97,11 @@ public class AmuletBoss : MonoBehaviour
         {
             SetState(_bossEnemies.GetChild(i).gameObject, true);
         }
-        _player.enabled = true;
+        TogglePlayer(true);
     }
     private IEnumerator SpawnWave4()
     {
-        _player.enabled = false;
+        TogglePlayer(false);
         for (int i = 0; i < _spawnPoints.childCount; i++)
         {
             var spawnPoint = _spawnPoints.GetChild(i);
@@ -110,7 +115,7 @@ public class AmuletBoss : MonoBehaviour
         {
             SetState(_bossEnemies.GetChild(i).gameObject, true);
         }
-        _player.enabled = true;
+        TogglePlayer(true);
     }
 
     private void SetState(GameObject enemy, bool state)
@@ -120,6 +125,13 @@ public class AmuletBoss : MonoBehaviour
         else enemy.GetComponent<MeleeController>().enabled = state;
         enemy.GetComponent<NavMeshAgent>().enabled = state;
         enemy.GetComponent<PlayerTracker>().enabled = state;
+    }
+
+    private void TogglePlayer(bool state)
+    {
+        _playerMovement.enabled = state;
+        _playerAttack.enabled = state;
+        _playerAnimator.SetBool("Moving", state);
     }
 
     private void WinGame()
