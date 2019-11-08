@@ -22,9 +22,13 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private AudioClip controlsVoice;
 
+    [SerializeField]
+    private AudioClip introClip;
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(introClip);
     }
 
     public void PlayGame()
@@ -46,6 +50,7 @@ public class MainMenu : MonoBehaviour
 
     public void CreditsButton()
     {
+        audioSource.volume = 0.5f;
         audioSource.PlayOneShot(creditsVoice);
         creditsMenu.SetActive(true);
         controlsMenu.SetActive(false);
@@ -54,6 +59,7 @@ public class MainMenu : MonoBehaviour
 
     public void ControlsButton()
     {
+        audioSource.volume = 0.5f;
         audioSource.PlayOneShot(controlsVoice);
         creditsMenu.SetActive(false);
         controlsMenu.SetActive(true);
