@@ -37,8 +37,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        _moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical"));
+        _moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0.025f - transform.position.y, Input.GetAxisRaw("Vertical"));
 
         if (IsMoveable && _moveDirection.magnitude > 0.95f)
         {
@@ -51,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
         {
             _animator.SetBool("Moving", false);
         }
-
 
     }
     void Update()
