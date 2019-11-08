@@ -50,7 +50,14 @@ public class HealthTracker : MonoBehaviour
             {
                 if (gameObject.tag == "Enemy")
                 {
-                    StartCoroutine(DeathSequence());
+                    if (ghostDeathParticle) Instantiate(
+                        ghostDeathParticle,
+                        gameObject.transform.position + new Vector3(0, 0.7f, 0),
+                        Quaternion.identity
+                    );
+                    whiteScreen.SetActive(false);
+                    DropItem();
+                    OnEnemyDeath();
                 }
                 else if (gameObject.tag == "Player")
                 {
@@ -210,11 +217,12 @@ public class HealthTracker : MonoBehaviour
 
     IEnumerator DeathSequence()
     {
-        if (!hasDied && gameObject.tag == "Player")
+        if (!hasDied)
         {
             Debug.Log("DEAD");
             hasDied = true;
-            gameDirector = GameObject.FindGameObjectWithTag("GameDirector").GetComponent<GameDirector>();
+            gameDirector = GameObject.FindGameObjectWithTag("GameDirector")
+                .GetComponent<GameDirector>();
             gameDirector.DeathQuote();
             GetComponent<PlayerMovement>().IsMoveable = false;
             yield return new WaitForSeconds(3f);

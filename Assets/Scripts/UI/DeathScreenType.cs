@@ -10,12 +10,12 @@ public class DeathScreenType : MonoBehaviour
 
     void Awake()
     {
-        txt = GetComponent<TextMeshPro>();
-        story = txt.text;
-        txt.text = "";
+        //txt = GetComponent<TextMeshPro>();
+        //story = txt.text;
+        //txt.text = "";
 
-        // TODO: add optional delay when to start
-        StartCoroutine(PlayText());
+        //// TODO: add optional delay when to start
+        //StartCoroutine(PlayText());
     }
     
     IEnumerator PlayText()
