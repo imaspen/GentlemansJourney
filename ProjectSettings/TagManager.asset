@@ -17,6 +17,7 @@ TagManager:
   - BossSpawn03
   - BossSpawn04
   - GameDirector
+  - VictoryScreen
   layers:
   - Default
   - TransparentFX
