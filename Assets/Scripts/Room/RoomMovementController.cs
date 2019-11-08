@@ -114,11 +114,12 @@ public class RoomMovementController : MonoBehaviour
     {
         _gameDirector.CompletedRooms.Add(gameObject);
         Debug.Log(_gameDirector.CompletedRooms.Count);
+        bool lockedDoor = room.name != $"{_levelGenerator.EndRoom.name}(Clone)"
+            || _gameDirector.CompletedRooms.Count > _levelGenerator.RoomCount;
+        
         return CharacterController.bounds.Intersects(
             door.GetComponent<BoxCollider>().bounds) 
             && door.activeInHierarchy
-            && (room.name != $"{_levelGenerator.EndRoom.name}(Clone)" 
-                || _gameDirector.CompletedRooms.Count 
-                    > _levelGenerator.RoomCount);
+            && (lockedDoor);
     }
 }
