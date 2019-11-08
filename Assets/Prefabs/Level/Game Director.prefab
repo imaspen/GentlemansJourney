@@ -55,6 +55,8 @@ MonoBehaviour:
   doorLockedButler: {fileID: 8300000, guid: dc4fb57e422d3d8489bfdd0b77bc131c, type: 3}
   bossMusic: {fileID: 816795647270467445, guid: 85cd5efb346925b40a664f69abd4c6c5,
     type: 3}
+  victoryScreen: {fileID: 7522907139314799294, guid: e03a5767f28ef6c408c45d44fcede1b0,
+    type: 3}
 --- !u!82 &6954911870899518943
 AudioSource:
   m_ObjectHideFlags: 0
