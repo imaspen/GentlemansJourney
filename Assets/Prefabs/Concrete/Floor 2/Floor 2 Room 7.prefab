@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &6944734917404073827
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2331206974882870962}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9616642, y: 1.2293605, z: 1.008043}
+  m_Center: {x: 0.23114586, y: 0.09801541, z: -0.22121784}
+--- !u!65 &7472633857325723794
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3736807953095643313}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.142959, y: 1.1995063, z: 1.0080428}
+  m_Center: {x: -0.14023763, y: 0.112942606, z: -0.2212179}
 --- !u!114 &1319937853292220825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,6 +543,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b685c3e2ca6e25a409514dc8dce95b30, type: 3}
+--- !u!1 &2331206974882870962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: b685c3e2ca6e25a409514dc8dce95b30,
+    type: 3}
+  m_PrefabInstance: {fileID: 2331206974882967570}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2331206974882572946 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b685c3e2ca6e25a409514dc8dce95b30,
@@ -947,6 +979,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b685c3e2ca6e25a409514dc8dce95b30, type: 3}
+--- !u!1 &3736807953095643313 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: b685c3e2ca6e25a409514dc8dce95b30,
+    type: 3}
+  m_PrefabInstance: {fileID: 3736807953095677457}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3736807953095281809 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b685c3e2ca6e25a409514dc8dce95b30,

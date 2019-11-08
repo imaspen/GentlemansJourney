@@ -29,6 +29,19 @@ MonoBehaviour:
   m_VoxelSize: 0.071666665
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: b1824439dba821f46816e15e6527a24b, type: 2}
+--- !u!65 &952225458945626798
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779932945091399291}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2012639, y: 0.3759575, z: 1.5000008}
+  m_Center: {x: -0.49996775, y: -0.18797852, z: 0.7500004}
 --- !u!1001 &605239249373971410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1161,3 +1174,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb4c46456724fc043846b1ddb12695fc, type: 3}
+--- !u!1 &8779932945091399291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: bb4c46456724fc043846b1ddb12695fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 8779932945091496155}
+  m_PrefabAsset: {fileID: 0}
