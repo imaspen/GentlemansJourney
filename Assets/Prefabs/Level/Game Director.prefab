@@ -53,6 +53,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1ed2b87bcd3295641ac434bb2eeeb278, type: 3}
   deathStinger: {fileID: 8300000, guid: 5a7778455a62da246bdd18904937147f, type: 3}
   doorLockedButler: {fileID: 8300000, guid: dc4fb57e422d3d8489bfdd0b77bc131c, type: 3}
+  bossMusic: {fileID: 816795647270467445, guid: 85cd5efb346925b40a664f69abd4c6c5,
+    type: 3}
 --- !u!82 &6954911870899518943
 AudioSource:
   m_ObjectHideFlags: 0

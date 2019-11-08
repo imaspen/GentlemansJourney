@@ -14,12 +14,16 @@ public class AmuletBoss : MonoBehaviour
     private IEnumerator _wave;
     private int _hitCount;
 
+    private GameDirector gameDirector;
+
     public GameObject Skeleton;
     public GameObject Ghost;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameDirector = GameObject.FindGameObjectWithTag("GameDirector").GetComponent<GameDirector>();
+        gameDirector.SpawnBossMusic();
         var player = GameObject.FindGameObjectWithTag("Player");
         _playerMovement = player.GetComponent<PlayerMovement>();
         _playerAttack = player.GetComponent<PlayerAttack>();

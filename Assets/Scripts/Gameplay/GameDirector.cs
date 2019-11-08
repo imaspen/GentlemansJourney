@@ -21,6 +21,9 @@ public class GameDirector : MonoBehaviour
     [SerializeField]
     private AudioClip doorLockedButler;
 
+    [SerializeField]
+    private GameObject bossMusic;
+
     public HashSet<GameObject> CompletedRooms;
 
     // Start is called before the first frame update
@@ -67,5 +70,10 @@ public class GameDirector : MonoBehaviour
             audioSource.PlayOneShot(doorLockedButler);
             _doorLockedCooldown = 5.0f;
         }
+    }
+
+    public void SpawnBossMusic()
+    {
+        Instantiate(bossMusic);
     }
 }
