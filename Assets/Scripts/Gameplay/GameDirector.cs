@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameDirector : MonoBehaviour
 {
     private GameObject player;
+    private float _doorLockedCooldown;
 
     [SerializeField]
     private GameObject deathScreen;
@@ -35,6 +36,7 @@ public class GameDirector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_doorLockedCooldown > 0) _doorLockedCooldown -= Time.deltaTime;
         if (!player)
         {
             if (!deathActive)
@@ -60,6 +62,10 @@ public class GameDirector : MonoBehaviour
 
     public void DoorLockedQuote()
     {
-        audioSource.PlayOneShot(doorLockedButler);
+        if (_doorLockedCooldown <= 0)
+        {
+            audioSource.PlayOneShot(doorLockedButler);
+            _doorLockedCooldown = 5.0f;
+        }
     }
 }

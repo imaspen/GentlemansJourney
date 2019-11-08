@@ -128,6 +128,7 @@ public class RoomMovementController : MonoBehaviour
         }
         else
         {
+            _gameDirector.DoorLockedQuote();
             //play locked noise
             return false;
         }
