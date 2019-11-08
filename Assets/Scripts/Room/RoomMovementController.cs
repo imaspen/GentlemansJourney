@@ -102,7 +102,7 @@ public class RoomMovementController : MonoBehaviour
 
     private void MoveRoom(GameObject newRoom, float xOffset, float zOffset)
     {
-        PlayerMovement.RoomMoveCooldown = 0.5f;
+        PlayerMovement.RoomMoveCooldown = 1.0f;
         Player.transform.position += new Vector3(xOffset, 0, zOffset);
         StartCoroutine(
             Camera.main.GetComponent<CameraMoveController>()
