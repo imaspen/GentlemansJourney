@@ -4,7 +4,7 @@ The first 2nd year University game jam game!
 ## Credits
 ### Programmers
 * Aspen: [Website](https://imaspen.dev), [LinkedIn](https://www.linkedin.com/in/aspen-thompson-337b68182/)
-* Daniel Haynes
+* Daniel Haynes [GitHub](https://github.com/Herbalrage)
 * Jacob Smith: [GitHub](https://github.com/JagubSmof)
 
 ### Designers
